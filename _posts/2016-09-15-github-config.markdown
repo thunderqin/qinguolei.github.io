@@ -2,7 +2,7 @@
 layout:     post
 title:      "github 的配置和使用"
 subtitle:   "如何配置ssh 以及常用的命令"
-date:       2016-09-015 12:00:00
+date:       2016-09-15 12:00:00
 author:     "Guolei"
 header-img: "img/post-bg-re-vs-ng2.jpg"
 header-mask: 0.3
