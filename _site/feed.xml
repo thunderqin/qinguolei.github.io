@@ -5,8 +5,8 @@
     <description>关于前端与旅游、篮球与摄影 | 国雷，Web &amp; Mobile Lover，Front-End Engineer，UX Designer | 这里是 @覃国雷 的个人博客，与你一起发现更大的世界。</description>
     <link>http://qinguolei.com/</link>
     <atom:link href="http://qinguolei.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 21 Sep 2016 00:46:26 +0800</pubDate>
-    <lastBuildDate>Wed, 21 Sep 2016 00:46:26 +0800</lastBuildDate>
+    <pubDate>Wed, 21 Sep 2016 01:27:41 +0800</pubDate>
+    <lastBuildDate>Wed, 21 Sep 2016 01:27:41 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -31,18 +31,15 @@
 
 &lt;p&gt;##操作数据库&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;首先，新建一个命令行 ctrl+n
-进入mongo环境&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;1 &lt;strong&gt;&lt;em&gt;首先，新建一个命令行 ctrl+n&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;进入mongo环境&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;mongod&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;创建一个数据库,名字是’guolei’&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;2 &lt;strong&gt;&lt;em&gt;创建一个数据库,名字是’guolei’&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;guolei&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -56,7 +53,7 @@
 
 &lt;p&gt;查看数据库列表（如果看不到自己创建的数据库，需要插入数据）&lt;/p&gt;
 
-&lt;p&gt;3.创建数据表并插入数据&lt;/p&gt;
+&lt;p&gt;3 &lt;strong&gt;&lt;em&gt;新增数据&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;数据表的名字叫’demo’&lt;/p&gt;
 
@@ -64,18 +61,14 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;查看数据表&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;4  &lt;strong&gt;&lt;em&gt;查看数据表&lt;/em&gt;&lt;/strong&gt;*&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;demo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pretty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;pretty是组织化的方式返回，更容易阅读，不加也行。&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;修改数据&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;5 &lt;strong&gt;&lt;em&gt;修改数据&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;假如要把我的名字改成guanxi,执行&lt;/p&gt;
 
@@ -83,12 +76,16 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;5.删除
+&lt;p&gt;6  &lt;strong&gt;&lt;em&gt;删除&lt;/em&gt;&lt;/strong&gt;
 增删改查。。。。&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;demo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'guanxi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;实际操作如下&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/mongo/mongo-cli.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;备注： 可以使用Robomongodb这款可视化工具 操作数据库&lt;/p&gt;
 
@@ -151,6 +148,17 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;注意&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;保证mongod 运行着&lt;/li&gt;
+  &lt;li&gt;node版本&amp;gt;4&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;执行结果&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/mongo/node-mongo.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;写这篇文章的时候，本人已经喝了四瓶啤酒，不详细的地方，大家海涵。。。。&lt;/p&gt;
 

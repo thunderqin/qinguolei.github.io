@@ -32,14 +32,15 @@ sudo mongod
 ##操作数据库
 
 
- 1. 首先，新建一个命令行 ctrl+n
+1 ***首先，新建一个命令行 ctrl+n***
+
 进入mongo环境
 
 ```js
 mongod
 ```
 
- 2. 创建一个数据库,名字是'guolei'
+2 ***创建一个数据库,名字是'guolei'***
 
 ```js
 use guolei
@@ -53,7 +54,7 @@ show dbs
 
  查看数据库列表（如果看不到自己创建的数据库，需要插入数据）
 
- 3.创建数据表并插入数据
+3 ***新增数据***
 
 数据表的名字叫'demo'
 
@@ -61,14 +62,14 @@ show dbs
 db.demo.insert({name:'guolei'})
 ```
 
- 3. 查看数据表
+4  ***查看数据表****
 
 ```js
 db.demo.find().pretty()
 ```
 pretty是组织化的方式返回，更容易阅读，不加也行。
 
-4. 修改数据
+5 ***修改数据***
 
 假如要把我的名字改成guanxi,执行
 
@@ -76,12 +77,16 @@ pretty是组织化的方式返回，更容易阅读，不加也行。
 db.demo.update({name:'guolei'},{$set:{'title':'guanxi'}})
 ```
 
-5.删除
+6  ***删除***
 增删改查。。。。
 
 ```js
 db.demo.remove({'title':'guanxi'})
 ```
+
+实际操作如下
+
+![](/img/in-post/mongo/mongo-cli.jpeg)
 
 备注： 可以使用Robomongodb这款可视化工具 操作数据库
 
@@ -145,6 +150,15 @@ db.open(function(err, db){
 ```js
 node index.js
 ```
+
+注意
+
+1. 保证mongod 运行着
+2. node版本>4
+
+执行结果
+
+![](/img/in-post/mongo/node-mongo.jpeg)
 
 写这篇文章的时候，本人已经喝了四瓶啤酒，不详细的地方，大家海涵。。。。
 
