@@ -5,8 +5,8 @@
     <description>关于前端与旅游、篮球与摄影 | 国雷，Web &amp; Mobile Lover，Front-End Engineer，UX Designer | 这里是 @覃国雷 的个人博客，与你一起发现更大的世界。</description>
     <link>http://qinguolei.com/</link>
     <atom:link href="http://qinguolei.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 21 Sep 2016 01:27:41 +0800</pubDate>
-    <lastBuildDate>Wed, 21 Sep 2016 01:27:41 +0800</lastBuildDate>
+    <pubDate>Wed, 21 Sep 2016 01:32:11 +0800</pubDate>
+    <lastBuildDate>Wed, 21 Sep 2016 01:32:11 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -159,6 +159,8 @@
 &lt;p&gt;执行结果&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/in-post/mongo/node-mongo.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;代码：&lt;a href=&quot;https://github.com/thunderqin/mongo&quot;&gt;github.com/thunderqin/mongo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;写这篇文章的时候，本人已经喝了四瓶啤酒，不详细的地方，大家海涵。。。。&lt;/p&gt;
 

@@ -160,6 +160,9 @@ node index.js
 
 ![](/img/in-post/mongo/node-mongo.jpeg)
 
+
+代码：[github.com/thunderqin/mongo](https://github.com/thunderqin/mongo)
+
 写这篇文章的时候，本人已经喝了四瓶啤酒，不详细的地方，大家海涵。。。。
 
 
