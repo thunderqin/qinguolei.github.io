@@ -5,8 +5,8 @@
     <description>关于前端与旅游、篮球与摄影 | 国雷，Web &amp; Mobile Lover，Front-End Engineer，UX Designer | 这里是 @覃国雷 的个人博客，与你一起发现更大的世界。</description>
     <link>http://qinguolei.com/</link>
     <atom:link href="http://qinguolei.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 21 Sep 2016 01:32:11 +0800</pubDate>
-    <lastBuildDate>Wed, 21 Sep 2016 01:32:11 +0800</lastBuildDate>
+    <pubDate>Wed, 21 Sep 2016 21:10:25 +0800</pubDate>
+    <lastBuildDate>Wed, 21 Sep 2016 21:10:25 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -204,6 +204,94 @@
       </item>
     
       <item>
+        <title>Koa VS Express</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;github是代码管理的利器，利用好github让开发更加丝滑。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;github 官网&lt;/a&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;著作权声明&lt;/h3&gt;
+
+&lt;p&gt;本文译自 &lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.v4y4euy1r&quot;&gt;Angular 2 versus React: There Will Be Blood&lt;/a&gt;，其实&lt;a href=&quot;http://www.w3ctech.com/topic/1675?from=timeline&amp;amp;isappinstalled=0&quot;&gt;之前有人翻译过&lt;/a&gt;，但是翻得水平有一点不忍直视，我们不希望浪费这篇好文章。&lt;br /&gt;
+本文由 &lt;a href=&quot;https://www.zhihu.com/people/li-ling-hao&quot;&gt;@李凌豪&lt;/a&gt; &lt;a href=&quot;https://www.zhihu.com/people/huxpro&quot;&gt;@黄玄&lt;/a&gt; 联合翻译，首次发布于&lt;a href=&quot;http://zhuanlan.zhihu.com/FrontendMagazine&quot;&gt;前端外刊评论 · 知乎专栏&lt;/a&gt;，转载请保留原文链接 ;)&lt;/p&gt;
+</description>
+        <pubDate>Fri, 12 Aug 2016 20:00:00 +0800</pubDate>
+        <link>http://qinguolei.com/2016/08/12/node-koa/</link>
+        <guid isPermaLink="true">http://qinguolei.com/2016/08/12/node-koa/</guid>
+        
+        <category>github</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>bootstrap vs materializecss 是时候让你的网站改头换面了</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;github是代码管理的利器，利用好github让开发更加丝滑。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;github 官网&lt;/a&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;著作权声明&lt;/h3&gt;
+
+&lt;p&gt;本文译自 &lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.v4y4euy1r&quot;&gt;Angular 2 versus React: There Will Be Blood&lt;/a&gt;，其实&lt;a href=&quot;http://www.w3ctech.com/topic/1675?from=timeline&amp;amp;isappinstalled=0&quot;&gt;之前有人翻译过&lt;/a&gt;，但是翻得水平有一点不忍直视，我们不希望浪费这篇好文章。&lt;br /&gt;
+本文由 &lt;a href=&quot;https://www.zhihu.com/people/li-ling-hao&quot;&gt;@李凌豪&lt;/a&gt; &lt;a href=&quot;https://www.zhihu.com/people/huxpro&quot;&gt;@黄玄&lt;/a&gt; 联合翻译，首次发布于&lt;a href=&quot;http://zhuanlan.zhihu.com/FrontendMagazine&quot;&gt;前端外刊评论 · 知乎专栏&lt;/a&gt;，转载请保留原文链接 ;)&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Jul 2016 20:00:00 +0800</pubDate>
+        <link>http://qinguolei.com/2016/07/12/materializecss/</link>
+        <guid isPermaLink="true">http://qinguolei.com/2016/07/12/materializecss/</guid>
+        
+        <category>github</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用webpack解决依赖 菜鸟教程</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;github是代码管理的利器，利用好github让开发更加丝滑。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;github 官网&lt;/a&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;著作权声明&lt;/h3&gt;
+
+&lt;p&gt;本文译自 &lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.v4y4euy1r&quot;&gt;Angular 2 versus React: There Will Be Blood&lt;/a&gt;，其实&lt;a href=&quot;http://www.w3ctech.com/topic/1675?from=timeline&amp;amp;isappinstalled=0&quot;&gt;之前有人翻译过&lt;/a&gt;，但是翻得水平有一点不忍直视，我们不希望浪费这篇好文章。&lt;br /&gt;
+本文由 &lt;a href=&quot;https://www.zhihu.com/people/li-ling-hao&quot;&gt;@李凌豪&lt;/a&gt; &lt;a href=&quot;https://www.zhihu.com/people/huxpro&quot;&gt;@黄玄&lt;/a&gt; 联合翻译，首次发布于&lt;a href=&quot;http://zhuanlan.zhihu.com/FrontendMagazine&quot;&gt;前端外刊评论 · 知乎专栏&lt;/a&gt;，转载请保留原文链接 ;)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Jun 2016 20:00:00 +0800</pubDate>
+        <link>http://qinguolei.com/2016/06/19/webpack/</link>
+        <guid isPermaLink="true">http://qinguolei.com/2016/06/19/webpack/</guid>
+        
+        <category>github</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>阿里云服务器 快速搭建web服务</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;github是代码管理的利器，利用好github让开发更加丝滑。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;github 官网&lt;/a&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;著作权声明&lt;/h3&gt;
+
+&lt;p&gt;本文译自 &lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.v4y4euy1r&quot;&gt;Angular 2 versus React: There Will Be Blood&lt;/a&gt;，其实&lt;a href=&quot;http://www.w3ctech.com/topic/1675?from=timeline&amp;amp;isappinstalled=0&quot;&gt;之前有人翻译过&lt;/a&gt;，但是翻得水平有一点不忍直视，我们不希望浪费这篇好文章。&lt;br /&gt;
+本文由 &lt;a href=&quot;https://www.zhihu.com/people/li-ling-hao&quot;&gt;@李凌豪&lt;/a&gt; &lt;a href=&quot;https://www.zhihu.com/people/huxpro&quot;&gt;@黄玄&lt;/a&gt; 联合翻译，首次发布于&lt;a href=&quot;http://zhuanlan.zhihu.com/FrontendMagazine&quot;&gt;前端外刊评论 · 知乎专栏&lt;/a&gt;，转载请保留原文链接 ;)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Jun 2016 20:00:00 +0800</pubDate>
+        <link>http://qinguolei.com/2016/06/12/aliyun/</link>
+        <guid isPermaLink="true">http://qinguolei.com/2016/06/12/aliyun/</guid>
+        
+        <category>github</category>
+        
+        
+      </item>
+    
+      <item>
         <title>Progressive Web App 之我见</title>
         <description>&lt;blockquote&gt;
   &lt;p&gt;下滑这里查看更多内容&lt;/p&gt;
@@ -243,6 +331,28 @@
         <category>前端开发</category>
         
         <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>体验react+redux丝滑的开发体验</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;github是代码管理的利器，利用好github让开发更加丝滑。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;github 官网&lt;/a&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;著作权声明&lt;/h3&gt;
+
+&lt;p&gt;本文译自 &lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.v4y4euy1r&quot;&gt;Angular 2 versus React: There Will Be Blood&lt;/a&gt;，其实&lt;a href=&quot;http://www.w3ctech.com/topic/1675?from=timeline&amp;amp;isappinstalled=0&quot;&gt;之前有人翻译过&lt;/a&gt;，但是翻得水平有一点不忍直视，我们不希望浪费这篇好文章。&lt;br /&gt;
+本文由 &lt;a href=&quot;https://www.zhihu.com/people/li-ling-hao&quot;&gt;@李凌豪&lt;/a&gt; &lt;a href=&quot;https://www.zhihu.com/people/huxpro&quot;&gt;@黄玄&lt;/a&gt; 联合翻译，首次发布于&lt;a href=&quot;http://zhuanlan.zhihu.com/FrontendMagazine&quot;&gt;前端外刊评论 · 知乎专栏&lt;/a&gt;，转载请保留原文链接 ;)&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Apr 2016 20:00:00 +0800</pubDate>
+        <link>http://qinguolei.com/2016/04/01/react-redux/</link>
+        <guid isPermaLink="true">http://qinguolei.com/2016/04/01/react-redux/</guid>
+        
+        <category>github</category>
         
         
       </item>
@@ -494,6 +604,28 @@ React     : 直接用 JS 就好啦 :)
         <category>JavaScript</category>
         
         <category>译文</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>如何用gitHub 打造自己的博客</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;github是代码管理的利器，利用好github让开发更加丝滑。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;github 官网&lt;/a&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;著作权声明&lt;/h3&gt;
+
+&lt;p&gt;本文译自 &lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.v4y4euy1r&quot;&gt;Angular 2 versus React: There Will Be Blood&lt;/a&gt;，其实&lt;a href=&quot;http://www.w3ctech.com/topic/1675?from=timeline&amp;amp;isappinstalled=0&quot;&gt;之前有人翻译过&lt;/a&gt;，但是翻得水平有一点不忍直视，我们不希望浪费这篇好文章。&lt;br /&gt;
+本文由 &lt;a href=&quot;https://www.zhihu.com/people/li-ling-hao&quot;&gt;@李凌豪&lt;/a&gt; &lt;a href=&quot;https://www.zhihu.com/people/huxpro&quot;&gt;@黄玄&lt;/a&gt; 联合翻译，首次发布于&lt;a href=&quot;http://zhuanlan.zhihu.com/FrontendMagazine&quot;&gt;前端外刊评论 · 知乎专栏&lt;/a&gt;，转载请保留原文链接 ;)&lt;/p&gt;
+</description>
+        <pubDate>Fri, 15 Jan 2016 20:00:00 +0800</pubDate>
+        <link>http://qinguolei.com/2016/01/15/githubpage-blog-jekyll/</link>
+        <guid isPermaLink="true">http://qinguolei.com/2016/01/15/githubpage-blog-jekyll/</guid>
+        
+        <category>github</category>
         
         
       </item>
