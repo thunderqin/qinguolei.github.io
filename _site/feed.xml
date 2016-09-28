@@ -5,8 +5,8 @@
     <description>关于前端与旅游、篮球与摄影 | 国雷，Web &amp; Mobile Lover，Front-End Engineer，UX Designer | 这里是 @覃国雷 的个人博客，与你一起发现更大的世界。</description>
     <link>http://qinguolei.com/</link>
     <atom:link href="http://qinguolei.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 28 Sep 2016 17:36:16 +0800</pubDate>
-    <lastBuildDate>Wed, 28 Sep 2016 17:36:16 +0800</lastBuildDate>
+    <pubDate>Wed, 28 Sep 2016 17:47:24 +0800</pubDate>
+    <lastBuildDate>Wed, 28 Sep 2016 17:47:24 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -596,27 +596,22 @@ $ git config –global user.email “549458812@qq”&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;默认上游分支&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;每次更新代码都需要指定远端分支&lt;/p&gt;
+&lt;p&gt;这样就可以直接pull了&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pull&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;提交代码&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;然而 每次拉取提交都需要指定分支 origin master
+写多了就烦了&lt;/p&gt;
 
-&lt;p&gt;写多了就烦了&lt;/p&gt;
+&lt;p&gt;解决方法就是设置默认上游分支
+&lt;code class=&quot;highlighter-rouge&quot;&gt;js
+git branch --set-upstream-to=origin/master master
+&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;branch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;upstream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;这段代码的作用就是 把当前分支(master)指向远端master分支&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/git/git-upstream.jpeg&quot; alt=&quot;&quot; /&gt;
+这段代码的作用就是 把当前分支(master)指向远端master分支&lt;/p&gt;
 
 &lt;p&gt;这样&lt;strong&gt;pull&lt;/strong&gt;或&lt;strong&gt;push&lt;/strong&gt;就不需要指定分支了&lt;/p&gt;
 

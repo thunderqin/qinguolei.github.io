@@ -126,24 +126,21 @@ git init
 git remote add origin git@github.com:thunderqin/wx_app.git
 ```
 
-* 默认上游分支
-
-每次更新代码都需要指定远端分支
+这样就可以直接pull了
 
 ```js
 git pull origin master
 ```
-提交代码
 
-```js
-git push origin master
-```
-
+然而 每次拉取提交都需要指定分支 origin master
 写多了就烦了
 
+解决方法就是设置默认上游分支
 ```js
 git branch --set-upstream-to=origin/master master
 ```
+
+![](http://www.qinguolei.com/img/in-post/git/git-upstream.jpeg)
 这段代码的作用就是 把当前分支(master)指向远端master分支
 
 这样**pull**或**push**就不需要指定分支了
