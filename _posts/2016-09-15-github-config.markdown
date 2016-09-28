@@ -144,6 +144,8 @@ git push origin master
 ```js
 git branch --set-upstream-to=origin/master master
 ```
+
+![](http://www.qinguolei.com/img/in-post/git/git-upstream.jpeg)
 这段代码的作用就是 把当前分支(master)指向远端master分支
 
 这样**pull**或**push**就不需要指定分支了
