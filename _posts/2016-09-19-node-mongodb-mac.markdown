@@ -15,7 +15,7 @@ tags:
 
 > mongoDB 作为非关系型数据库，采用类似json的结构保存数据，json和js更配哦~
 
-![](/img/in-post/mongo/mongodb-tool.jpeg)
+![](http://www.qinguolei.com/img/in-post/mongo/mongodb-tool.jpeg)
 
 库名：guolei
 
@@ -95,7 +95,7 @@ db.demo.remove({'title':'guanxi'})
 
 实际操作如下
 
-![](/img/in-post/mongo/mongo-cli.jpeg)
+![](http://www.qinguolei.com/img/in-post/mongo/mongo-cli.jpeg)
 
 备注： 可以使用Robomongodb这款可视化工具 操作数据库
 
@@ -167,7 +167,7 @@ node index.js
 
 执行结果
 
-![](/img/in-post/mongo/node-mongo.jpeg)
+![](http://www.qinguolei.com/img/in-post/mongo/node-mongo.jpeg)
 
 
 代码：[github.com/thunderqin/mongo](https://github.com/thunderqin/mongo)

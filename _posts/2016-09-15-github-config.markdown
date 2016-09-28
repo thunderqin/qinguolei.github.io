@@ -33,11 +33,11 @@ tags:
 
 两种方式，看图
 
-![](/img/in-post/git/git-new.jpeg)
+![](http://www.qinguolei.com/img/in-post/git/git-new.jpeg)
 
 ## 初始化
 
-![](/img/in-post/git/git-init.jpeg)
+![](http://www.qinguolei.com/img/in-post/git/git-init.jpeg)
 
 
 ## ssh配置
@@ -63,11 +63,11 @@ ssh-keygen -t rsa -C “549458812@qq.com”
 
 连续按三个确认，得到***id_rsa***和***id_rsa.pub***文件
 
-![](/img/in-post/git/ssh.jpeg)
+![](http://www.qinguolei.com/img/in-post/git/ssh.jpeg)
 
 把id_rsa.pub的里面的密钥复制到git官网上面
 
-![](/img/in-post/git/git-ssh.png)
+![](http://www.qinguolei.com/img/in-post/git/git-ssh.png)
 
 
 然后就可以愉快的写代码了。
@@ -125,7 +125,7 @@ git push origin master
 而不是直接拉取到你本地。你可以把缓存区当成一个分支，就这么简单，有利于代码的管理。
 
 
-![](/img/in-post/git/git-cache.png)
+![](http://www.qinguolei.com/img/in-post/git/git-cache.png)
 
 2. fetch 和 pull的区别
 

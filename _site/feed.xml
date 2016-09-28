@@ -5,8 +5,8 @@
     <description>关于前端与旅游、篮球与摄影 | 国雷，Web &amp; Mobile Lover，Front-End Engineer，UX Designer | 这里是 @覃国雷 的个人博客，与你一起发现更大的世界。</description>
     <link>http://qinguolei.com/</link>
     <atom:link href="http://qinguolei.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 28 Sep 2016 14:28:49 +0800</pubDate>
-    <lastBuildDate>Wed, 28 Sep 2016 14:28:49 +0800</lastBuildDate>
+    <pubDate>Wed, 28 Sep 2016 15:24:54 +0800</pubDate>
+    <lastBuildDate>Wed, 28 Sep 2016 15:24:54 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -81,7 +81,7 @@
 
 &lt;p&gt;执行test.js&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/npm/npm-test.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/npm/npm-test.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;npm&quot;&gt;发布到NPM&lt;/h2&gt;
 
@@ -98,14 +98,14 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adduser&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/img/in-post/npm/npm-adduser.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/npm/npm-adduser.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;查看当前用户&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;whoami&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/img/in-post/npm/npm-whoami.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/npm/npm-whoami.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;发布&lt;/li&gt;
@@ -124,7 +124,7 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;qinguolei&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/img/in-post/npm/npm-install.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/npm/npm-install.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var fn = require('qinguolei');
 
@@ -139,7 +139,7 @@ console.log(obj)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/npm/npm-run.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/npm/npm-run.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;是不是很炫酷，是不是，是不是。。。。(二笔)&lt;/p&gt;
 
@@ -157,7 +157,7 @@ console.log(obj)
   &lt;li&gt;提示你 version错误&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/npm/npm-publish-version.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/npm/npm-publish-version.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;发布后，再次修改代码记得更改版本号&lt;/p&gt;
 
@@ -204,7 +204,7 @@ console.log(obj)
 
 &lt;h2 id=&quot;section&quot;&gt;先看效果&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/svg/lei.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/svg/lei.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;(忽略我丑陋的书法)&lt;/p&gt;
 
@@ -267,7 +267,7 @@ console.log(obj)
 
 &lt;p&gt;&lt;a href=&quot;http://editor.method.ac/&quot;&gt;editor.method.ac&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/svg/mothod.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/svg/mothod.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;使用教程：&lt;/p&gt;
 
@@ -302,7 +302,7 @@ console.log(obj)
   &lt;p&gt;mongoDB 作为非关系型数据库，采用类似json的结构保存数据，json和js更配哦~&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/mongo/mongodb-tool.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/mongo/mongodb-tool.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;库名：guolei&lt;/p&gt;
 
@@ -380,7 +380,7 @@ console.log(obj)
 
 &lt;p&gt;实际操作如下&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/mongo/mongo-cli.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/mongo/mongo-cli.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;备注： 可以使用Robomongodb这款可视化工具 操作数据库&lt;/p&gt;
 
@@ -453,7 +453,7 @@ console.log(obj)
 
 &lt;p&gt;执行结果&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/mongo/node-mongo.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/mongo/node-mongo.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;代码：&lt;a href=&quot;https://github.com/thunderqin/mongo&quot;&gt;github.com/thunderqin/mongo&lt;/a&gt;&lt;/p&gt;
 
@@ -503,11 +503,11 @@ console.log(obj)
 
 &lt;p&gt;两种方式，看图&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/git/git-new.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/git/git-new.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section-3&quot;&gt;初始化&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/git/git-init.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/git/git-init.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;ssh&quot;&gt;ssh配置&lt;/h2&gt;
 
@@ -532,11 +532,11 @@ $ git config –global user.email “549458812@qq”&lt;/p&gt;
 
 &lt;p&gt;连续按三个确认，得到&lt;strong&gt;&lt;em&gt;id_rsa&lt;/em&gt;&lt;/strong&gt;和&lt;strong&gt;&lt;em&gt;id_rsa.pub&lt;/em&gt;&lt;/strong&gt;文件&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/git/ssh.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/git/ssh.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;把id_rsa.pub的里面的密钥复制到git官网上面&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/git/git-ssh.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/git/git-ssh.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;然后就可以愉快的写代码了。&lt;/p&gt;
 
@@ -595,7 +595,7 @@ $ git config –global user.email “549458812@qq”&lt;/p&gt;
 &lt;p&gt;答： 因为缓存区可以在你本地形成一个Log树，记录你所有的操作，你从远端fetch代码，也是存在缓存区，
 而不是直接拉取到你本地。你可以把缓存区当成一个分支，就这么简单，有利于代码的管理。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/in-post/git/git-cache.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.qinguolei.com/img/in-post/git/git-cache.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;fetch 和 pull的区别&lt;/li&gt;

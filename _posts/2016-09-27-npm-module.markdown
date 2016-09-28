@@ -79,7 +79,7 @@ console.log(obj);
 
 执行test.js
 
-![](/img/in-post/npm/npm-test.jpeg)
+![](http://www.qinguolei.com/img/in-post/npm/npm-test.jpeg)
 
 
 ## 发布到NPM
@@ -93,14 +93,14 @@ console.log(obj);
 ```js
 npm adduser
 ```
-![](/img/in-post/npm/npm-adduser.jpeg)
+![](http://www.qinguolei.com/img/in-post/npm/npm-adduser.jpeg)
 
 查看当前用户
 
 ```js
 npm whoami
 ```
-![](/img/in-post/npm/npm-whoami.jpeg)
+![](http://www.qinguolei.com/img/in-post/npm/npm-whoami.jpeg)
 
 3. 发布
 
@@ -115,7 +115,7 @@ npm publish
 ```js
 npm install qinguolei
 ```
-![](/img/in-post/npm/npm-install.jpeg)
+![](http://www.qinguolei.com/img/in-post/npm/npm-install.jpeg)
 
 ```
 var fn = require('qinguolei');
@@ -130,7 +130,7 @@ index.js
 node index.js
 ```
 
-![](/img/in-post/npm/npm-run.jpeg)
+![](http://www.qinguolei.com/img/in-post/npm/npm-run.jpeg)
 
 
 是不是很炫酷，是不是，是不是。。。。(二笔)
@@ -145,7 +145,7 @@ node index.js
 
 2. 提示你 version错误
 
-![](/img/in-post/npm/npm-publish-version.jpeg)
+![](http://www.qinguolei.com/img/in-post/npm/npm-publish-version.jpeg)
 
 发布后，再次修改代码记得更改版本号
 

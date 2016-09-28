@@ -17,7 +17,7 @@ svg的基础教程可以在w3c上查看，本篇文章主要讲，如何绘制�
 
 ## 先看效果
 
-![](/img/in-post/svg/lei.gif)
+![](http://www.qinguolei.com/img/in-post/svg/lei.gif)
 
 (忽略我丑陋的书法)
 
@@ -80,7 +80,7 @@ https://jsfiddle.net/thunder1992/q6e54ewt/)
 
 [editor.method.ac](http://editor.method.ac/)
 
-![](/img/in-post/svg/mothod.png)
+![](http://www.qinguolei.com/img/in-post/svg/mothod.png)
 
 使用教程：
 
