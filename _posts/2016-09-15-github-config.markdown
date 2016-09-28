@@ -108,6 +108,48 @@ git commit -m 'add index.js'
 git push origin master
 ```
 
+## 黑科技
+
+* 每次clone的时候,会把根目录wx_app下载过来，但是有时候不想要这个根目录，怎么办呢？
+
+需要设置当前目录的remote地址
+
+**首先初始化**
+
+```js
+git init
+```
+
+**设置远端地址**
+
+```js
+git remote add origin git@github.com:thunderqin/wx_app.git
+```
+
+* 默认上游分支
+
+每次更新代码都需要指定远端分支
+
+```js
+git pull origin master
+```
+提交代码
+
+```js
+git push origin master
+```
+
+写多了就烦了
+
+```js
+git branch --set-upstream-to=origin/master master
+```
+这段代码的作用就是 把当前分支(master)指向远端master分支
+
+这样**pull**或**push**就不需要指定分支了
+
+![](http://www.qinguolei.com/img/in-post/git/git-push.jpeg)
+
 ## 其他常用命令
 
 * git status 对比本地和缓存区的修改

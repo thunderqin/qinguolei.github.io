@@ -290,7 +290,53 @@ $ git config –global user.email “549458812@qq”</p>
 </code></pre>
 </div>
 
-<h2 id="section-7">其他常用命令</h2>
+<h2 id="section-7">黑科技</h2>
+
+<ul>
+  <li>每次clone的时候,会把根目录wx_app下载过来，但是有时候不想要这个根目录，怎么办呢？</li>
+</ul>
+
+<p>需要设置当前目录的remote地址</p>
+
+<p><strong>首先初始化</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">init</span>
+</code></pre>
+</div>
+
+<p><strong>设置远端地址</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">origin</span> <span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="err">:</span><span class="nx">thunderqin</span><span class="o">/</span><span class="nx">wx_app</span><span class="p">.</span><span class="nx">git</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>默认上游分支</li>
+</ul>
+
+<p>每次更新代码都需要指定远端分支</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">pull</span> <span class="nx">origin</span> <span class="nx">master</span>
+</code></pre>
+</div>
+<p>提交代码</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="nx">master</span>
+</code></pre>
+</div>
+
+<p>写多了就烦了</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">branch</span> <span class="o">--</span><span class="nx">set</span><span class="o">-</span><span class="nx">upstream</span><span class="o">-</span><span class="nx">to</span><span class="o">=</span><span class="nx">origin</span><span class="o">/</span><span class="nx">master</span> <span class="nx">master</span>
+</code></pre>
+</div>
+<p>这段代码的作用就是 把当前分支(master)指向远端master分支</p>
+
+<p>这样<strong>pull</strong>或<strong>push</strong>就不需要指定分支了</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/git-push.jpeg" alt="" /></p>
+
+<h2 id="section-8">其他常用命令</h2>
 
 <ul>
   <li>git status 对比本地和缓存区的修改</li>
@@ -300,7 +346,7 @@ $ git config –global user.email “549458812@qq”</p>
   <li>git merge b 把b分支合并到当前分支</li>
 </ul>
 
-<h2 id="section-8">思考</h2>
+<h2 id="section-9">思考</h2>
 
 <ol>
   <li>和svn最大的区别是多了一个缓存区，为什么需要这个缓存区，直接Push不可以吗</li>
@@ -358,7 +404,7 @@ merge： 合并缓存区和本地代码</p>
 
 <p>解决的办法就是，新建一个分支temp，然后把temp的代码rebase过来，这样就保证项目的Log是在一个时间轴上。</p>
 
-<h3 id="section-9">著作权声明</h3>
+<h3 id="section-10">著作权声明</h3>
 
 <p>无</p>
 
