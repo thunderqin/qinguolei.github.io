@@ -4,7 +4,7 @@ title:      "node环境下 安装使用mongodb"
 subtitle:   "mongodb环境配置"
 date:       2016-09-19 12:00:00
 author:     "Guolei"
-header-img: "img/in-post/mongo/mongodb.png"
+header-img: ""
 header-mask: 0.3
 catalog:    true
 tags:
@@ -13,16 +13,7 @@ tags:
     - mac
 ---
 
-> mongoDB 作为非关系型数据库，采用类似json的结构保存数据，json和js更配哦~
-
-![](/img/in-post/mongo/mongodb-tool.jpeg)
-
-库名：guolei
-
-table名: col
-
-数据： 三个对象（{name:'',id:''}）
-
+> mongoDB 作为非关系型数据库，配合node使用，效果更棒
 
 ## 安装
 
