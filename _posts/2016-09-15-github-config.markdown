@@ -136,6 +136,7 @@ git pull origin master
 写多了就烦了
 
 解决方法就是设置默认上游分支
+
 ```js
 git branch --set-upstream-to=origin/master master
 ```
