@@ -102,6 +102,27 @@ git add index.js
 git commit -m 'add index.js'
 ```
 
+## 修改撤销
+
+```js
+git checkout README.md
+```
+
+## 版本回退
+
+```js
+git log
+//可以查看历史记录
+git log --pretty=oneline
+//版本ID一行显示
+git reset --hard HEAD^
+//会退到上一个版本
+git reset --hard commit_id
+//退到指定ID版本
+```
+
+
+
 ## 发布
 
 ```js
