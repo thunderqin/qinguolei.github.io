@@ -18,13 +18,14 @@ mocha 是一个代码测试框架，针对异步的单元测试，简单有趣�
 
 ## 安装
 
- ```js
- npm install mocha -g
- ```
+```js
+npm install mocha -g
+```
 
  ## 项目
 
 保存在package.json中
+
 ```js
 npm install mocha --save
 ```
@@ -70,9 +71,13 @@ describe('加法函数的测试',function(){
 
 ```
 
-* 需要引进断言库chai（作用就是判断结果和预期的关系，相等，大于，小于，布尔，包含等关系）
+* 需要**引进**断言库chai（作用就是判断结果和预期的关系，相等，大于，小于，布尔，包含等关系）
 
-*一个describe可以包含多个it
+```js
+npm install chai --save
+```
+
+* 一个describe可以包含多个it
 
 * it 的第一个参数是描述，第二个是一个fn
 
@@ -86,7 +91,7 @@ describe('加法函数的测试',function(){
 
 运行结果
 
-![](http://www.qinguolei.com/img/in-post/npm/npm-test.jpeg)
+![](http://www.qinguolei.com/img/in-post/mocha/mocha-demo1.jpg)
 
 ## 异步
 
@@ -106,6 +111,8 @@ it('测试应该5000毫秒后结束', function(done) {
 
 5s延迟 执行结果
 
+![](http://www.qinguolei.com/img/in-post/mocha/mocha-time.jpg)
+
 
 报错了，因为mocha默认超过2000ms就结束
 
@@ -117,6 +124,7 @@ mocha -t 5000 add.test.js
 
 执行结果
 
+![](http://www.qinguolei.com/img/in-post/mocha/mocha-syn.jpg)
 
 ## promise
 
@@ -174,11 +182,46 @@ function () {
 
 ```js
 
+var expect = require('chai').expect;
+
+describe('函数顺序示例', function() {
+
+
+  beforeEach(function() {
+    console.log('beforeEach');
+  });
+  before(function() {
+    console.log('before');
+  });
+  afterEach(function() {
+    console.log('afterEach')
+  });
+  after(function() {
+    console.log('after');
+  });
+
+  it('测试1', function() {
+    expect(1).to.be.equal(1);
+  });
+  it('测试2', function() {
+    expect({a:1}).to.be.an('Object');
+  });
+
+
+});
+
 ```
+
+一个descipt下面有两个it
+执行顺序如下：
+
+![](http://www.qinguolei.com/img/in-post/mocha/mocha-order.jpg)
+
+
 
 mocha 还有很多有趣的功能，包括导出markdowm格式的报表，网页浏览结果,还通过--watch 可以试试检测代码，重新测试。
 
 代码地址：[github](https://github.com/thunderqin/mocha.git)
 ### 著作权声明
 
-本文demo主要参照了[一峰](http://www.cnblogs.com/whoamme/p/3467374.html)老师的博客
+本文主要参照了[一峰](http://www.cnblogs.com/whoamme/p/3467374.html)老师的博客
