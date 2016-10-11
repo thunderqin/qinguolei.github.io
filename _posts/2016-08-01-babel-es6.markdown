@@ -1,0 +1,119 @@
+---
+layout:     post
+title:      "babel使用教程"
+subtitle:   "es6➕babel，让你的代码飞"
+date:       2016-8-01 12:00:00
+author:     "Guolei"
+header-img: ""
+header-mask: 0.3
+catalog:    true
+tags:
+    - es6
+    - babel
+---
+
+> Babel is a JavaScript compiler.
+
+es6虽然强大，无奈大多数浏览器都无法兼容，不过办法总比问题多，babel让你的代码插上es6的翅膀，更具逼格
+
+
+## 安装
+
+```js
+# ES2015转码规则
+$ npm install --save-dev babel-preset-es2015
+
+# react转码规则
+$ npm install --save-dev babel-preset-react
+```
+
+项目根目录添加配置文件 .babelrc (很重要)
+
+ ```
+{
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": []
+}
+ ```
+.babelrc
+
+## 运行
+
+新建自己的项目仓库
+
+```
+mkdir babel-demo
+git init
+npm init
+```
+
+安装babel命令行工具
+
+```js
+npm install --global babel-cli
+```
+
+新建一个example.js
+
+```js
+[1,2,3].map(n => n + 1);
+```
+example.js
+
+** 执行 **
+
+babel example.js
+
+执行结果输出在命令行
+![](http://www.qinguolei.com/img/in-post/babel/babel-example.jpg)
+
+
+如果想输出到指定文件
+
+```js
+babel example.js -o compiled.js
+```
+
+当然我们一般是批量转化
+
+```js
+babel src -d lib
+```
+将src里面的多有代码转化为es5并保存到lib文件夹中
+
+
+![](http://www.qinguolei.com/img/in-post/babel/babel-lib.jpg)
+
+然而目前的操作都是在全局下进行的，依赖性太强，我们需要把它放到项目中
+
+```js
+npm install --save-dev babel-cli
+```
+
+改写package.json
+```
+{
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+}
+```
+
+这样编译只需要执行
+```js
+npm run build
+```
+
+当然如果嫌麻烦，可以在线转化
+[babel在线转化网址](https://babeljs.io/repl/)
+
+
+
+代码地址：[github](https://github.com/thunderqin/babel-demo)
+
+### 著作权声明
+
+本文主要参照了[一峰](http://www.ruanyifeng.com/blog/2016/01/babel.html)老师的博客，感谢老师
