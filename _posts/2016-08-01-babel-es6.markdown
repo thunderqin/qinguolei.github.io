@@ -29,7 +29,7 @@ $ npm install --save-dev babel-preset-react
 
 项目根目录添加配置文件 .babelrc (很重要)
 
- ```
+```
 {
     "presets": [
       "es2015",
@@ -37,7 +37,8 @@ $ npm install --save-dev babel-preset-react
     ],
     "plugins": []
 }
- ```
+```
+
 .babelrc
 
 ## 运行
@@ -63,12 +64,12 @@ npm install --global babel-cli
 ```
 example.js
 
-** 执行 **
+**执行**
 
 babel example.js
 
 执行结果输出在命令行
-![](http://www.qinguolei.com/img/in-post/babel/babel-example.jpg)
+![](http://www.qinguolei.com/img/in-post/babel/babel-example.jpeg)
 
 
 如果想输出到指定文件
@@ -85,7 +86,7 @@ babel src -d lib
 将src里面的多有代码转化为es5并保存到lib文件夹中
 
 
-![](http://www.qinguolei.com/img/in-post/babel/babel-lib.jpg)
+![](http://www.qinguolei.com/img/in-post/babel/babel-lib.jpeg)
 
 然而目前的操作都是在全局下进行的，依赖性太强，我们需要把它放到项目中
 
@@ -94,6 +95,7 @@ npm install --save-dev babel-cli
 ```
 
 改写package.json
+
 ```
 {
   "scripts": {
@@ -103,6 +105,7 @@ npm install --save-dev babel-cli
 ```
 
 这样编译只需要执行
+
 ```js
 npm run build
 ```
