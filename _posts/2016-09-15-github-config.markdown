@@ -153,6 +153,13 @@ git remote add origin git@github.com:thunderqin/wx_app.git
 git pull origin master
 ```
 
+如果想推送到新的库
+
+```js
+git remote rm origin
+git remote add origin <giturl>
+```
+
 然而 每次拉取提交都需要指定分支 origin master
 写多了就烦了
 

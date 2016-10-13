@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "babel使用教程"
-subtitle:   "es6➕babel，让你的代码飞"
+title:      "es6 十大特性"
+subtitle:   "用着就是爽"
 date:       2016-8-01 12:00:00
 author:     "Guolei"
 header-img: ""
@@ -12,7 +12,62 @@ tags:
     - babel
 ---
 
-> Babel is a JavaScript compiler.
+> ES6(ECMAScript 6)是即将到来的新版本JavaScript语言的标准
+
+## 箭头函数
+
+```js
+var arr =['guolei','guanxi','nimei'];
+
+传统做法
+arr.forEach(function(v,i){v = 'hello '+v;console.log(v)})
+
+es6
+arr.forEach((v,i)=>{v='hello '+v; console.log(v)})
+
+```
+简洁直接
+
+## class
+
+之前保存了class的关键字，现在终于用上了
+
+```
+class Person {
+  //ES6中新型构造器
+    constructor(name) {
+        this.name = name;
+    }
+    //实例方法
+    sayName() {
+        console.log('My name is '+this.name);
+    }
+}
+//类的继承
+class Manong extends Person {
+    constructor(name) {
+      //直接调用父类构造器进行初始化
+        super(name);
+    }
+    program() {
+        console.log("I'm coding...");
+    }
+}
+//测试我们的类
+var ren =new Person('dummy'),
+wayou= new Manong('wayou');
+animal.sayName();//输出 ‘My name is dummy’
+wayou.sayName();//输出 ‘My name is wayou’
+wayou.program();//输出 ‘I'm coding...’
+
+```
+
+用class实现继承和原型链相比，一个直观，一个方便，各有优点吧。
+
+
+
+
+
 
 es6虽然强大，无奈大多数浏览器都无法兼容，不过办法总比问题多，babel让你的代码插上es6的翅膀，更具逼格
 

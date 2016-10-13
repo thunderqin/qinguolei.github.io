@@ -1,0 +1,229 @@
+---
+layout:     post
+title:      "es6新特性"
+subtitle:   "常用的几个特性"
+date:       2016-08-10 12:00:00
+author:     "Guolei"
+header-img: ""
+header-mask: 0.3
+catalog:    true
+tags:
+    - es6
+    - promise
+---
+
+> ES6(ECMAScript 6)是即将到来的新版本JavaScript语言的标准，目前最新浏览器已经支持部分ES6属性
+
+## 箭头函数
+
+```js
+var arr =['guolei','guanxi','nimei'];
+
+传统做法
+arr.forEach(function(v,i){v = 'hello '+v;console.log(v)})
+
+es6
+arr.forEach((v,i)=>{v='hello '+v; console.log(v)})
+
+```
+
+```js
+两个数相加简介
+let add = (a,b)=> a+b;
+或者
+let add = (a,b)=>{return a+b}
+```
+
+## class
+
+```js
+class Person {
+    //ES6中新型构造器
+    constructor(name) {
+        this.name = name;
+    }
+    //实例方法
+    sayName() {
+        console.log('My name is ' + this.name);
+    }
+}
+//类的继承
+class Manong extends Person {
+    constructor(name) {
+        //直接调用父类构造器进行初始化
+        super(name);
+    }
+    program() {
+        console.log("I'm coding...");
+    }
+}
+//测试我们的类
+var ren = new Person('dummy'),
+    wayou = new Manong('wayou');
+ren.sayName(); //输出 ‘My name is dummy’
+wayou.sayName(); //输出 ‘My name is wayou’
+wayou.program(); //输出 ‘I'm coding...’
+```
+通过class或者原型链都可以实现继承，个人感觉class更加直观，但是原型链使用最方便
+
+## 字面量创建对象
+
+```js
+// 基础类
+var human = {
+  say(){
+    console.log('hello');
+  }
+}
+
+// 扩展
+var worker = {
+  // 原型链
+  __proto__: human,
+  company: 'ali',
+  work(){
+    console.log('work....');
+  }
+
+};
+
+human.say(); //输出hello
+worker.say(); //输出hello
+worker.work(); //输出working
+
+```
+亮点：精简fn写法，可以通过__proto__拓展原型链
+
+## 异构
+
+```js
+var [x,y]=getArr(),
+    [name,...age]=['wangcai','nimei','hahaha'];
+
+function getArr(){
+  return [1,2];
+}
+
+var {a,b} = {a:'apple',b:'balane'};
+
+console.log(`x:${x},y:${y},name:${name},age:${age},a:${a},b:${b}`);
+
+//x=1,y=2,name='wangcai',age=['nimei','hahaha'],a = 'apple',b='balane'
+
+```
+
+## let const
+
+```
+for(let i=0;i<10;i++){}
+// console.log(i) 报错
+
+var a = [];
+for(let j=0;j<10;j++){
+   a[j]=function(){console.log(j)}
+}
+
+a[6]();
+
+const t = 'nihao';
+
+t = 'nimei'; //报错
+```
+
+作用域终于正常了。。。。。。
+
+
+## 默认值
+
+```js
+function sayHello(name='guolei'){
+  console.log(`hello ${name}`);
+}
+
+sayHello(); //hello guolei
+sayHello('guanxi'); //hello guanxi
+
+```
+
+## 默认参数
+
+```
+function add(...x){
+  console.log(x)
+}
+
+
+add(1,2,35); // [1,2,35]
+add('nimei');// ['nimei']
+add({a:1});// [{a:1}]
+```
+
+## 模块化
+
+```js
+const name = 'guolei';
+const age = '24';
+const add = (a,b)=>a+b;
+const add2 = (...x)=>{return x[0]+x[1]}
+
+export {name,age,add,add2}
+
+```
+profile.js
+
+
+```js
+import {name,add,add2} from './profile';
+
+console.log(name);
+console.log(add(10,23));
+console.log(add2(150,100));
+
+```
+index.js
+
+引入的时候 异构了一下
+
+## promise
+
+```
+var getJSON = function(url) {
+  var promise = new Promise(function(resolve, reject){
+    var client = new XMLHttpRequest();
+    client.open("GET", url);
+    client.onreadystatechange = handler;
+    client.responseType = "json";
+    client.setRequestHeader("Accept", "application/json");
+    client.send();
+
+    function handler() {
+      if (this.readyState !== 4) {
+        return;
+      }
+      if (this.status === 200) {
+        resolve(this.response);
+      } else {
+        reject(new Error(this.statusText));
+      }
+    };
+  });
+
+  return promise;
+};
+
+getJSON('./posts.json').then(function(json){console.log(`data:${json}`)});
+
+```
+
+和jquery的promise差不多
+
+## Generator迭代器
+
+类似一个状态机的机制 不断的.next 切换状态
+套路太深  用到的时候再看文档
+
+
+
+### 著作权声明
+
+本文demo借鉴了[whoamme](http://www.cnblogs.com/whoamme/p/3467374.html)的博客
