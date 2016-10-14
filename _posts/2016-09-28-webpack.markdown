@@ -1,0 +1,44 @@
+---
+layout:     post
+title:      "webpack-详解"
+subtitle:   "前端模块化利器"
+date:       2016-10-08 12:00:00
+author:     "Guolei"
+header-img: ""
+header-mask: 0.3
+catalog:    true
+tags:
+    - webpack
+    - babel
+    - es5
+---
+
+> 微信小程序出来之后，热度非常高，看到VUE的影子，也看到前端的未来，
+
+## 效果
+
+![](http://www.qinguolei.com/img/in-post/wxapp/wx.gif)
+
+## 功能
+
+1. 获取用户信息
+2. nav切换
+3. 查看文章，滚动加载
+4. 切换tab
+
+## 体验
+
+1. mvvm开发方式，vue，很喜欢
+2. 开发工具强大
+3. 应用接口丰富
+4. 解决了三端的问题
+
+## 不足
+
+1. 接口要求https，提高了门槛
+2. 有些接口不稳定，bindscrolltolowe方法失效，毕竟现在还在试验期。
+
+代码地址：[github](https://github.com/thunderqin/wx_app_demo_cnode_api)
+### 著作权声明
+
+
