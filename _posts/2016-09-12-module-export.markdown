@@ -63,6 +63,8 @@ index2.js
 
 ## export default & export
 
+## export default 和 export是es6模块化的写法，区别于commonjs ##
+
 profile.js
 
 ```
