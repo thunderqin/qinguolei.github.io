@@ -22,6 +22,7 @@ tags:
 区别
 
 a.js
+
 ```js
  exports.a = function(){
  	console.log('a')
@@ -30,6 +31,7 @@ a.js
 ```
 
 index.js
+
 ```js
 
  var x = require('./a');
@@ -38,6 +40,7 @@ index.js
 ```
 
 b.js
+
 ```js
  module.exports.b = function(){
  	console.log('a')
@@ -46,6 +49,7 @@ b.js
 ```
 
 index2.js
+
 ```js
 
  var x = require('./b');
@@ -60,6 +64,7 @@ index2.js
 ## export default & export
 
 profile.js
+
 ```
 export var name = 'guolei';
 
@@ -71,6 +76,7 @@ export default {
 ```
 
 index.js
+
 ```
 import {name} from './profile'
 
@@ -82,6 +88,8 @@ export 需要在{}内，接收对应的变量name(要和export一样)
 
 
 代码地址：[github](https://github.com/thunderqin/babel-demo)
-### 著作权声明
+
+
+
 
 
