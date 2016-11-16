@@ -64,7 +64,20 @@ wayou.program();//输出 ‘I'm coding...’
 
 用class实现继承和原型链相比，一个直观，一个方便，各有优点吧。
 
+##字符串
 
+传统
+```
+var name = 'guolei'
+var fullName = 'qin ' + name
+```
+
+es6
+
+```
+let name = 'guolei'
+let fullName = `qin ${name}`
+```
 
 
 
