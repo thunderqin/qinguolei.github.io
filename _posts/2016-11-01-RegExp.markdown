@@ -78,60 +78,7 @@ proxy是一个Proxy对象,所有的修改通过proxy进行，这样就可以实�
 
 ## 实现数据绑定
 
-```
-	class gl{
-		constructor(options){
-			this.$data = options.data
-			this.$tpl = options.template
-			this.$el = options.el
-			this.$d = this.$setData(this.$data)
-			this._render(this.$tpl,this.$data)
-		}
 
-		$setData(obj,fn){
-			let self = this
-			return new Proxy(obj,{
-				set(target,property,value){
-					target[property] = value
-					console.log('change')
-					// 属性赋值时，渲染模板
-					self._render(self.$tpl,self.$data)
-					return true
-				},
-				get(target, key, receiver){
-					return target[key]
-				}
-			})
-		}
-
-		_render(tplString,data){
-			let html = this._replaceFun(tplString,data)
-			document.querySelector(this.$el).innerHTML = html
-		}
-
-		_replaceFun(tpl,data){
-			//  正则，会返回一个数组，a是{{name}},b是name
-			let reg = new RegExp('{{([^{}]*)}}','g')
-			return tpl.replace(reg,(a,b)=>{
-				return data[b]
-			})
-		}
-	}
-
-	let tpl = document.querySelector('#app').innerHTML
-	// 创建对象
-	let g = new gl({
-		data:{name:'guolei'},
-		template: tpl,
-		el: '#app',
-	})
-
-	// 只需要修改data  后期加上双向自动绑定 v-model（自定义指令） 
-	document.querySelector('#input').oninput =(e)=>{
-			g.$d.name = e.target.value;
-	}
-```
-js代码
 
 
 ```

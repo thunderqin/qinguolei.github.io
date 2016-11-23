@@ -1,19 +1,18 @@
 ---
 layout:     post
-title:      "es6 proxy对象 实现vue数据试图双向绑定"
-subtitle:   "数据双向绑定"
-date:       2016-11-11 12:00:00
+title:      "nodemail 自动发邮件"
+subtitle:   "报警必备"
+date:       2016-11-22 12:00:00
 author:     "Guolei"
 header-img: ""
 header-mask: 0.3
 catalog:    true
 tags:
-    - es6
-    - Proxy
+    - node
+    - email
 ---
 
-> 之前通过**Object.definProperty**监听数据的读写,
-es6提供了一个**Proxy**对象，同样可以实现对数据的监听
+> 接口报错，编译出错，机器死机都需要发送邮件，短信提醒。nodeMailer是一个功能齐全，使用人数最多的框架。
 
 ## 效果 ***
 
