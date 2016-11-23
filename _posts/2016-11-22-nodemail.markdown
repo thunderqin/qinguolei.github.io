@@ -101,7 +101,8 @@ html代码
 
 
 
-代码地址：[github](https://github.com/thunderqin/wx_app_demo_cnode_api)
+代码地址：[github](https://github.com/thunderqin/nodemail-demo)
+
 ### 著作权声明
 
 

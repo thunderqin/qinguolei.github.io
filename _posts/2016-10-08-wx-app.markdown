@@ -37,7 +37,8 @@ tags:
 1. 接口要求https，提高了门槛
 2. 有些接口不稳定，bindscrolltolowe方法失效，毕竟现在还在试验期。
 
-代码地址：[github](https://github.com/thunderqin/wx_app_demo_cnode_api)
+代码地址：[github](https://github.com/thunderqin/model-view-demo)
+
 ### 著作权声明
 
 

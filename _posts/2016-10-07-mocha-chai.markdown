@@ -222,6 +222,7 @@ describe('函数顺序示例', function() {
 mocha 还有很多有趣的功能，包括导出markdowm格式的报表，网页浏览结果,还通过--watch 可以试试检测代码，重新测试。
 
 代码地址：[github](https://github.com/thunderqin/mocha.git)
+
 ### 著作权声明
 
 本文主要参照了[一峰](http://www.cnblogs.com/whoamme/p/3467374.html)老师的博客
