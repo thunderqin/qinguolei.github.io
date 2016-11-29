@@ -16,92 +16,72 @@ tags:
 
 ## 效果 ***
 
-![](http://www.qinguolei.com/img/in-post/proxy/proxy.gif)
+![](http://www.qinguolei.com/img/in-post/email/get-email.jpg)
 
-## 回顾ES5
+## 安装nodemailer
 
-以前实现数据的监听，可以通过Object.definProperty，在set和get中对读写进行处理。
+```
+node install nodemailer --save
+```
 
 ### 具体实现
 
-```js
-Object.defineProperty(o, "b", {
-	get : function(){ return '新值'+this.bVal; },
-    set : function(newValue){ this.bVal = newValue },
-    enumerable : true,
-    configurable : true
+```
+var nodemailer = require('nodemailer');
+// 创建发送端对象
+var transporter = nodemailer.createTransport({
+    //https://github.com/andris9/nodemailer-wellknown#supported-services 支持列表
+    service: 'qq',
+    port: 465, // SMTP 端口
+    secureConnection: true, // 使用 SSL
+    auth: {
+        user: '549458812@qq.com',
+        //这里密码不是qq密码，是你设置的smtp密码
+        pass: 'nyhbvdfzdsjubdac12'
+    }
 });
 
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: '549458812@qq.com', // 发件地址
+    sender: 'guolei',
+    to: '1023800127@qq.com', // 收件列表
+    // 抄送
+  /*  cc: '952082442@qq.com',*/
+    subject: '我是国雷', // 标题
+    attachments:{
+        // 文件名字
+        filename: '照片',
+        // 文件类型
+        path: '/Users/qinguolei/Desktop/me.jpg'
+    },
+    // text和html两者只支持一种
+    text: '邮件测试' // 标题
+    /*html: '<h1>想啥呢 ?</h1><p>我说的发一个邮件</p>'*/
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+
+});
 ```
 
-**enumerable** 是否可被Object.key枚举
-**configurable** 是否可配置，注意（默认是false,所以需要第一次就设置为true）
-**get** 当读取o.b的值时，会执行get函数
-**set** 当给o.b设置新的值是，会执行set函数
+用户只需要提供发送者的 qq账号 smtp密码，
 
-### 问题
+smtp的密码，需要从邮件设置-账户中获取，是一串字符。
 
-上面的demo对一个属性（b）进行监听，假如o有3个属性怎么办
-
-也可以这样
-
-```
-Object.defineProperty(o, {a:{...}}, {b:{...}},{c:{...}});
-```
-假如有100个呢！！？
-
-## 救星Proxy
-
-先看个demo
-```js
-let obj = {name:'guolei',age:23};
-
-let proxy = new Proxy(obj,{
-	set(target,property,value){
-		target[property] = value
-		console.log(`赋值为:${value}`)
-		return true
-	},
-	get(target, key, receiver){
-		console.log('取值')
-		return target[key]
-	}
-})
-proxy.name  // '取值'' '国雷'
-proxy.name = 'qinguolei' // '赋值为qinguolei'
-proxy.age  // '取值'' 23
-proxy.name = 666  // '赋值为666'
-
-```
-proxy是一个Proxy对象,所有的修改通过proxy进行，这样就可以实现对每一个属性的取值和赋值的监听
-
-如果我们在set中对加入对view的控制，不就可以实现数据绑定了吗
-
-## 实现数据绑定
+![](http://www.qinguolei.com/img/in-post/email/qq-email.jpg)
 
 
 
-
-```
-<div id="app">
-	<p>
-		看这里：<span>{{name}}</span>
-	</p>
-</div>
-<div id="input-wrap">
-	Val: <input type="text" id="input">
-</div>
-```
-html代码
-
-## 优化
-
-1. 每次修改代码会把模板全部替换掉 应该是局部优化
-2. 加上v-model，自动监听输入框oniput事件
-
-
-
-代码地址：[github](https://github.com/thunderqin/nodemail-demo)
+代码地址：[github.com/thunderqin/nodemail-demo](https://github.com/thunderqin/nodemail-demo)
 
 ### 著作权声明
 
