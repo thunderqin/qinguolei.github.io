@@ -19,7 +19,11 @@ svg的基础教程可以在w3c上查看，本篇文章主要讲，如何绘制�
 
 ![](http://www.qinguolei.com/img/in-post/svg/lei.gif)
 
+
 (忽略我丑陋的书法)
+
+![](http://www.qinguolei.com/img/in-post/svg/car.gif)
+
 
 难点：
 
@@ -94,14 +98,63 @@ https://jsfiddle.net/thunder1992/q6e54ewt/)
 2. 在画板上绘制路线
 3. 点击view，导出路径代码
 
-## 思考
+## 高阶用法
 
-假如要实现，一个小火车沿着路径发车，时间是5秒，怎么做呢？
+绘制好svn路线之后，如何让物体沿着路径前进
 
-下次教程，敬请期待。
+```
+// 配置位移矢量 一共走100步
+var STEP = 100;
+var curStep = 0;
 
+var path = $('#path')[0];
+var $car = $('#car');
 
+var timer = null;
+// 最重要的两个属性  获取长度，以及每个点的坐标
+var totalLength = path.getTotalLength();
+var initPosition = path.getPointAtLength(0);
+var prePosition = initPosition;
+var curPosition = initPosition;
 
-### 著作权声明
+// 获取前进切线角度
+function getRotate(a, b) {
+  var k = (b.y - a.y) / (b.x - a.x);
+  var rotate = Math.atan(k) * 180 / Math.PI;
+  return k < 0 ? rotate + 90 : rotate - 90;
+}
 
-本文demo借鉴了[张鑫旭的博客](http://www.zhangxinxu.com/wordpress/2014/04/animateion-line-drawing-svg-path-%E5%8A%A8%E7%94%BB-%E8%B7%AF%E5%BE%84/)
+// 定位car 
+$car.css({
+  left: initPosition.x,
+  top:initPosition.y,
+  '-webkit-transform': 'translate(-2px, 0) rotate(' + getRotate(curPosition , path.getPointAtLength(1)) +'deg)'
+}).show()
+
+// 定时器控制前进
+timer = setInterval(function() {
+  
+  if (curStep != STEP) {
+    curStep++;
+    
+    curPosition = path.getPointAtLength(totalLength/STEP * curStep);
+   
+    $car.css({
+      left: curPosition.x,
+      top:curPosition.y,
+     '-webkit-transform': 'translate(-2px, 0) rotate('+getRotate(prePosition, curPosition)+'deg)'
+    }).show();
+    prePosition = curPosition;
+  } else {
+    clearInterval(timer);
+  }
+  
+}, 100)
+```
+
+原理就是将svn的长度平分100次，每100ms走一次，每次的坐标通过 path.getPointAtLength(totalLength/STEP * curStep)计算，然后通过js控制小车的位置。
+
+通过setimeout可以配置小车运动的快慢，还可以通过缓动函数，使小车具有惯性。
+
+地址： [jsfiddle](https://jsfiddle.net/thunder1992/goeopq7p/)
+
