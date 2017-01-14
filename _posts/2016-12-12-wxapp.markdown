@@ -1,0 +1,122 @@
+---
+layout:     post
+title:      "微信小程序入门教程"
+subtitle:   "开发方式和常用快捷键"
+date:       2016-12-12 12:00:00
+author:     "Guolei"
+header-img: ""
+header-mask: 0.3
+catalog:    true
+tags:
+    - wxapp
+    - vue
+---
+
+> 接口报错，编译出错，机器死机都需要发送邮件，短信提醒。nodeMailer是一个功能齐全，使用人数最多的框架。
+
+## 快捷键 ***
+
+格式调整
+
+　　Ctrl+S：保存文件
+
+　　Ctrl+[， Ctrl+]：代码行缩进
+
+　　Ctrl+Shift+[， Ctrl+Shift+]：折叠打开代码块
+
+　　Ctrl+C Ctrl+V：复制粘贴，如果没有选中任何文字则复制粘贴一行
+
+　　Shift+Alt+F：代码格式化
+
+　　Alt+Up，Alt+Down：上下移动一行
+
+　　Shift+Alt+Up，Shift+Alt+Down：向上向下复制一行
+
+　　Ctrl+Shift+Enter：在当前行上方插入一行
+
+光标相关
+
+　　Ctrl+End：移动到文件结尾
+
+　　Ctrl+Home：移动到文件开头
+
+　　Ctrl+i：选中当前行
+
+　　Shift+End：选择从光标到行尾
+
+　　Shift+Home：选择从行首到光标处
+
+　　Ctrl+Shift+L：选中所有匹配
+
+　　Ctrl+D：选中匹配
+
+　　Ctrl+U：光标回退
+
+## 安装nodemailer
+
+```
+node install nodemailer --save
+```
+
+### 具体实现
+
+```
+var nodemailer = require('nodemailer');
+// 创建发送端对象
+var transporter = nodemailer.createTransport({
+    //https://github.com/andris9/nodemailer-wellknown#supported-services 支持列表
+    service: 'qq',
+    port: 465, // SMTP 端口
+    secureConnection: true, // 使用 SSL
+    auth: {
+        user: '549458812@qq.com',
+        //这里密码不是qq密码，是你设置的smtp密码
+        pass: 'nyhbvdfzdsjubdac12'
+    }
+});
+
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: '549458812@qq.com', // 发件地址
+    sender: 'guolei',
+    to: '1023800127@qq.com', // 收件列表
+    // 抄送
+  /*  cc: '952082442@qq.com',*/
+    subject: '我是国雷', // 标题
+    attachments:{
+        // 文件名字
+        filename: '照片',
+        // 文件类型
+        path: '/Users/qinguolei/Desktop/me.jpg'
+    },
+    // text和html两者只支持一种
+    text: '邮件测试' // 标题
+    /*html: '<h1>想啥呢 ?</h1><p>我说的发一个邮件</p>'*/
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+
+});
+```
+
+用户只需要提供发送者的 qq账号 smtp密码，
+
+smtp的密码，需要从邮件设置-账户中获取，是一串字符。
+
+![](http://www.qinguolei.com/img/in-post/email/qq-email.jpg)
+
+
+
+代码地址：[github.com/thunderqin/nodemail-demo](https://github.com/thunderqin/nodemail-demo)
+
+### 著作权声明
+
+
