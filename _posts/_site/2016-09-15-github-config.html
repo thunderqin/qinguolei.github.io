@@ -1,0 +1,237 @@
+<blockquote>
+  <p>github是代码管理的利器，他可以帮助你管理项目代码，如果你有开源项目，希望大家一起帮你完成，那么Github一定是首选。</p>
+</blockquote>
+
+<h2 id="作用">作用</h2>
+
+<p><strong>学一样东西应该先了解，它解决了什么问题，根据问题去思考他问什么要这样处理</strong></p>
+
+<ol>
+  <li>解决了多人开发，代码共享的问题</li>
+  <li>解决了代码版本控制的问题。</li>
+  <li>解决了开源项目，代码冲突的问题。</li>
+  <li>可以集成到测试工具里面</li>
+</ol>
+
+<h2 id="入门">入门</h2>
+
+<p>去<a href="https://github.com/">github 官网</a>注册一个自己的账号</p>
+
+<p>输入邮箱密码。。。。下一步</p>
+
+<h2 id="创建一个代远端库">创建一个代远端库</h2>
+
+<p>两种方式，看图</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/git-new.jpeg" alt="" /></p>
+
+<h2 id="初始化">初始化</h2>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/git-init.jpeg" alt="" /></p>
+
+<h2 id="ssh配置">ssh配置</h2>
+
+<p><strong><em>为什么要配置ssh呢</em></strong></p>
+
+<p>问得好，因为不配置的话，谁都有权限提交代码到你的远程库，那你的代码和JN有没有区别</p>
+
+<p>也可以用<strong><em>HTTPS</em></strong>的方式 克隆代码，每次提交到远程的是时候，需要输入账号密码（奔溃）</p>
+
+<p>配置好ssh之后，就不需要每次都输入账号密码了</p>
+
+<p><em>** mac下 **</em></p>
+
+<p>先配置一个git <strong>邮箱</strong>和<strong>姓名</strong></p>
+
+<p>$ git config –global user.name “thunderqin”
+$ git config –global user.email “549458812@qq”</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">ssh</span><span class="o">-</span><span class="nx">keygen</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">rsa</span> <span class="o">-</span><span class="nx">C</span> <span class="err">“</span><span class="mi">549458812</span><span class="err">@</span><span class="nx">qq</span><span class="p">.</span><span class="nx">com</span><span class="err">”</span>
+</code></pre>
+</div>
+
+<p>连续按三个确认，得到<strong><em>id_rsa</em></strong>和<strong><em>id_rsa.pub</em></strong>文件</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/ssh.jpeg" alt="" /></p>
+
+<p>把id_rsa.pub的里面的密钥复制到git官网上面</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/git-ssh.png" alt="" /></p>
+
+<p>然后就可以愉快的写代码了。</p>
+
+<h2 id="常用命令">常用命令</h2>
+
+<p>** 克隆 **
+进入自己的开发目录</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">clone</span> <span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="err">:</span><span class="nx">thunderqin</span><span class="o">/</span><span class="nx">wx_app</span><span class="p">.</span><span class="nx">git</span>
+</code></pre>
+</div>
+
+<p>这段代码不仅会把远端的README 克隆下来，还会将目录和远程建立联系 可以直接Push</p>
+
+<p>** 添加修改</p>
+
+<p>创建一个index.js文件</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">touch</span> <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+</code></pre>
+</div>
+<p>我们需要先添加修改到缓存区</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">add</span> <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+</code></pre>
+</div>
+
+<h2 id="提交">提交</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">commit</span> <span class="o">-</span><span class="nx">m</span> <span class="s1">'add index.js'</span>
+</code></pre>
+</div>
+
+<h2 id="修改撤销">修改撤销</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">checkout</span> <span class="nx">README</span><span class="p">.</span><span class="nx">md</span>
+</code></pre>
+</div>
+
+<h2 id="版本回退">版本回退</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">log</span>
+<span class="c1">//可以查看历史记录</span>
+<span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span>
+<span class="c1">//版本ID一行显示</span>
+<span class="nx">git</span> <span class="nx">reset</span> <span class="o">--</span><span class="nx">hard</span> <span class="nx">HEAD</span><span class="o">^</span>
+<span class="c1">//会退到上一个版本</span>
+<span class="nx">git</span> <span class="nx">reset</span> <span class="o">--</span><span class="nx">hard</span> <span class="nx">commit_id</span>
+<span class="c1">//退到指定ID版本</span>
+</code></pre>
+</div>
+
+<h2 id="发布">发布</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="nx">master</span>
+</code></pre>
+</div>
+
+<h2 id="黑科技">黑科技</h2>
+
+<ul>
+  <li>每次clone的时候,会把根目录wx_app下载过来，但是有时候不想要这个根目录，怎么办呢？</li>
+</ul>
+
+<p>需要设置当前目录的remote地址</p>
+
+<p><strong>首先初始化</strong></p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">init</span>
+</code></pre>
+</div>
+
+<p><strong>设置远端地址</strong></p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">origin</span> <span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="err">:</span><span class="nx">thunderqin</span><span class="o">/</span><span class="nx">wx_app</span><span class="p">.</span><span class="nx">git</span>
+</code></pre>
+</div>
+
+<p>这样就可以直接pull了</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">pull</span> <span class="nx">origin</span> <span class="nx">master</span>
+</code></pre>
+</div>
+
+<p>如果想推送到新的库</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">rm</span> <span class="nx">origin</span>
+<span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">origin</span> <span class="o">&lt;</span><span class="nx">giturl</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<p>然而 每次拉取提交都需要指定分支 origin master
+写多了就烦了</p>
+
+<p>解决方法就是设置默认上游分支</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">branch</span> <span class="o">--</span><span class="nx">set</span><span class="o">-</span><span class="nx">upstream</span><span class="o">-</span><span class="nx">to</span><span class="o">=</span><span class="nx">origin</span><span class="o">/</span><span class="nx">master</span> <span class="nx">master</span>
+</code></pre>
+</div>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/git-upstream.jpeg" alt="" />
+这段代码的作用就是 把当前分支(master)指向远端master分支</p>
+
+<p>这样<strong>pull</strong>或<strong>push</strong>就不需要指定分支了</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/git-push.jpeg" alt="" /></p>
+
+<h2 id="其他常用命令">其他常用命令</h2>
+
+<ul>
+  <li>git status 对比本地和缓存区的修改</li>
+  <li>git commit –amend -C HEAD  本次提交追加到上次Log</li>
+  <li>git log 查看提价日志</li>
+  <li>git diff a.js b.js 查看a和b的不同</li>
+  <li>git merge b 把b分支合并到当前分支</li>
+</ul>
+
+<h2 id="思考">思考</h2>
+
+<ol>
+  <li>和svn最大的区别是多了一个缓存区，为什么需要这个缓存区，直接Push不可以吗</li>
+</ol>
+
+<p>答： 因为缓存区可以在你本地形成一个Log树，记录你所有的操作，你从远端fetch代码，也是存在缓存区，
+而不是直接拉取到你本地。你可以把缓存区当成一个分支，就这么简单，有利于代码的管理。</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/git/git-cache.png" alt="" /></p>
+
+<ol>
+  <li>fetch 和 pull的区别</li>
+</ol>
+
+<p>每次修改代码之前需要执行</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">pull</span> <span class="nx">origin</span> <span class="nx">master</span>
+</code></pre>
+</div>
+
+<p>pull = fetch + merge.</p>
+
+<p>fetch： 把远程的代码，合并到缓存区里（这个时候本地是没有任何修改的）
+merge： 合并缓存区和本地代码</p>
+
+<ol>
+  <li>提交时候，提示冲突，怎么解决</li>
+</ol>
+
+<ul>
+  <li>这种情况很可能是你开发的时候 没有pull最新代码 冲突了 解决的办法就是手动解决</li>
+</ul>
+
+<p><em>** 举个栗子 **</em></p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="nx">HEAD</span>
+
+<span class="nx">code</span> <span class="k">in</span> <span class="nx">master</span>
+
+<span class="o">=======</span>
+
+<span class="nx">code</span> <span class="k">in</span> <span class="nx">dev</span>
+
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="nx">dev</span>
+</code></pre>
+</div>
+
+<p>** ««« ** 代表冲突的开始 »»代表冲突的结束，把这段代码改成正确的代码就行，然后再次提交</p>
+
+<ol>
+  <li>git rebase temp</li>
+</ol>
+
+<p>新手老师搞不懂什么时候用rebase,这样说吧，你的commit 中和服务器中的有些commit不再同一时间轴上，即：你的有些commit要插入到服务器中的某些commit之间，这样就会造成代码的冲突。</p>
+
+<p>解决的办法就是，新建一个分支temp，然后把temp的代码rebase过来，这样就保证项目的Log是在一个时间轴上。</p>
+
+<h3 id="著作权声明">著作权声明</h3>
+
+<p>无</p>

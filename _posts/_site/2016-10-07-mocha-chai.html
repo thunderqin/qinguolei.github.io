@@ -1,0 +1,220 @@
+<blockquote>
+  <p>Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun.</p>
+</blockquote>
+
+<p>mocha 是一个代码测试框架，针对异步的单元测试，简单有趣。</p>
+
+<h2 id="安装">安装</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">mocha</span> <span class="o">-</span><span class="nx">g</span>
+</code></pre>
+</div>
+
+<p>## 项目</p>
+
+<p>保存在package.json中</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">mocha</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre>
+</div>
+
+<p>进入项目并创建test目录（mocha会自动执行test目录下面的测试文件）</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">mkdir</span> <span class="nx">test</span>
+<span class="nx">touch</span> <span class="p">.</span><span class="o">/</span><span class="nx">test</span><span class="o">/</span><span class="nx">add</span><span class="p">.</span><span class="nx">js</span>
+<span class="nx">touch</span> <span class="p">.</span><span class="o">/</span><span class="nx">test</span><span class="o">/</span><span class="nx">add</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">js</span>
+</code></pre>
+</div>
+
+<p>写一个简单的add方法</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+  <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">add</span><span class="p">;</span>
+</code></pre>
+</div>
+<p>add.js</p>
+
+<p>测试代码</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./add.js'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">expect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chai'</span><span class="p">).</span><span class="nx">expect</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'加法函数的测试'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'1+1等于2'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'1+1为true'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">ok</span><span class="p">;</span>
+  <span class="p">});</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'1+1相加不等于250'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'[1,3,4]数组中含有3'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">expect</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+</code></pre>
+</div>
+
+<ul>
+  <li>需要<strong>引进</strong>断言库chai（作用就是判断结果和预期的关系，相等，大于，小于，布尔，包含等关系）</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">chai</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>一个describe可以包含多个it</p>
+  </li>
+  <li>
+    <p>it 的第一个参数是描述，第二个是一个fn</p>
+  </li>
+  <li>
+    <p>expect传入结果，to.be后面是预期</p>
+  </li>
+</ul>
+
+<h3 id="执行">执行</h3>
+
+<p>可以在test 目录中执行 mocha add.test.js
+也可以在 demo01中 直接只执行 Mocha</p>
+
+<p>运行结果</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/mocha/mocha-demo1.jpg" alt="" /></p>
+
+<h2 id="异步">异步</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">expect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chai'</span><span class="p">).</span><span class="nx">expect</span><span class="p">;</span>
+
+<span class="nx">it</span><span class="p">(</span><span class="s1">'测试应该5000毫秒后结束'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">x</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">ok</span><span class="p">;</span>
+    <span class="nx">done</span><span class="p">();</span> <span class="c1">// 通知Mocha测试结束</span>
+  <span class="p">};</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="mi">4000</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>5s延迟 执行结果</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/mocha/mocha-time.jpg" alt="" /></p>
+
+<p>报错了，因为mocha默认超过2000ms就结束</p>
+
+<p>所以 需要设置超时时间</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mocha -t 5000 add.test.js
+</code></pre>
+</div>
+
+<p>执行结果</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/mocha/mocha-syn.jpg" alt="" /></p>
+
+<h2 id="promise">promise</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">expect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chai'</span><span class="p">).</span><span class="nx">expect</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'promise.test.js - 异步测试'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'异步请求应该返回一个对象'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.github.com'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+      <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">json</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">an</span><span class="p">(</span><span class="s1">'object'</span><span class="p">);</span>
+      <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+</code></pre>
+</div>
+<p>需要安装一个node-fetch的库</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">node</span><span class="o">-</span><span class="nx">fetch</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre>
+</div>
+
+<p>执行</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">mocha</span> <span class="nx">promise</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">js</span>
+</code></pre>
+</div>
+
+<p>res代表返回的所有信息 （响应码，响应体，响应头）</p>
+
+<p>res.json</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function () {
+
+  // for 204 No Content response, buffer will be empty, parsing it will throw error
+  if (this.status === 204) {
+    return Body.Promise.resolve({});
+  }
+
+  return this._decode().then(function(buffer) {
+    return JSON.parse(buffer.toString());
+  });
+
+}
+</code></pre>
+</div>
+<p>返回响应体，并格式化为对象</p>
+
+<p>最后断言判断是否是一个对象</p>
+
+<h2 id="before-after">before after</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">expect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chai'</span><span class="p">).</span><span class="nx">expect</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'函数顺序示例'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'beforeEach'</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="nx">before</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'before'</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'afterEach'</span><span class="p">)</span>
+  <span class="p">});</span>
+  <span class="nx">after</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'after'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'测试1'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'测试2'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">({</span><span class="na">a</span><span class="p">:</span><span class="mi">1</span><span class="p">}).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="nx">an</span><span class="p">(</span><span class="s1">'Object'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+
+<span class="p">});</span>
+
+</code></pre>
+</div>
+
+<p>一个descipt下面有两个it
+执行顺序如下：</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/mocha/mocha-order.jpg" alt="" /></p>
+
+<p>mocha 还有很多有趣的功能，包括导出markdowm格式的报表，网页浏览结果,还通过–watch 可以试试检测代码，重新测试。</p>
+
+<p>代码地址：<a href="https://github.com/thunderqin/mocha.git">github</a></p>
+
+<h3 id="著作权声明">著作权声明</h3>
+
+<p>本文主要参照了<a href="http://www.cnblogs.com/whoamme/p/3467374.html">一峰</a>老师的博客</p>

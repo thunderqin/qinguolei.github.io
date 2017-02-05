@@ -1,0 +1,107 @@
+<blockquote>
+  <p>接口报错，编译出错，机器死机都需要发送邮件，短信提醒。nodeMailer是一个功能齐全，使用人数最多的框架。</p>
+</blockquote>
+
+<h2 id="快捷键-">快捷键 ***</h2>
+
+<p>格式调整</p>
+
+<p>　　Ctrl+S：保存文件</p>
+
+<p>　　Ctrl+[， Ctrl+]：代码行缩进</p>
+
+<p>　　Ctrl+Shift+[， Ctrl+Shift+]：折叠打开代码块</p>
+
+<p>　　Ctrl+C Ctrl+V：复制粘贴，如果没有选中任何文字则复制粘贴一行</p>
+
+<p>　　Shift+Alt+F：代码格式化</p>
+
+<p>　　Alt+Up，Alt+Down：上下移动一行</p>
+
+<p>　　Shift+Alt+Up，Shift+Alt+Down：向上向下复制一行</p>
+
+<p>　　Ctrl+Shift+Enter：在当前行上方插入一行</p>
+
+<p>光标相关</p>
+
+<p>　　Ctrl+End：移动到文件结尾</p>
+
+<p>　　Ctrl+Home：移动到文件开头</p>
+
+<p>　　Ctrl+i：选中当前行</p>
+
+<p>　　Shift+End：选择从光标到行尾</p>
+
+<p>　　Shift+Home：选择从行首到光标处</p>
+
+<p>　　Ctrl+Shift+L：选中所有匹配</p>
+
+<p>　　Ctrl+D：选中匹配</p>
+
+<p>　　Ctrl+U：光标回退</p>
+
+<h2 id="安装nodemailer">安装nodemailer</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>node install nodemailer --save
+</code></pre>
+</div>
+
+<h3 id="具体实现">具体实现</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var nodemailer = require('nodemailer');
+// 创建发送端对象
+var transporter = nodemailer.createTransport({
+    //https://github.com/andris9/nodemailer-wellknown#supported-services 支持列表
+    service: 'qq',
+    port: 465, // SMTP 端口
+    secureConnection: true, // 使用 SSL
+    auth: {
+        user: '549458812@qq.com',
+        //这里密码不是qq密码，是你设置的smtp密码
+        pass: 'nyhbvdfzdsjubdac12'
+    }
+});
+
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: '549458812@qq.com', // 发件地址
+    sender: 'guolei',
+    to: '1023800127@qq.com', // 收件列表
+    // 抄送
+  /*  cc: '952082442@qq.com',*/
+    subject: '我是国雷', // 标题
+    attachments:{
+        // 文件名字
+        filename: '照片',
+        // 文件类型
+        path: '/Users/qinguolei/Desktop/me.jpg'
+    },
+    // text和html两者只支持一种
+    text: '邮件测试' // 标题
+    /*html: '&lt;h1&gt;想啥呢 ?&lt;/h1&gt;&lt;p&gt;我说的发一个邮件&lt;/p&gt;'*/
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+
+});
+</code></pre>
+</div>
+
+<p>用户只需要提供发送者的 qq账号 smtp密码，</p>
+
+<p>smtp的密码，需要从邮件设置-账户中获取，是一串字符。</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/email/qq-email.jpg" alt="" /></p>
+
+<p>代码地址：<a href="https://github.com/thunderqin/nodemail-demo">github.com/thunderqin/nodemail-demo</a></p>
+
+<h3 id="著作权声明">著作权声明</h3>
+

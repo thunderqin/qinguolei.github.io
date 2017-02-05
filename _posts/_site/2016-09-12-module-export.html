@@ -1,0 +1,77 @@
+<blockquote>
+  <p>项目越来越复杂，模块化显得格外重要，好的规范，可以让你的大代码简介易懂</p>
+</blockquote>
+
+<h2 id="exports-moduleexport">exports module.export</h2>
+
+<p>这两个是node的写法，遵循commionJS规范
+区别</p>
+
+<p>a.js</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">exports</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+ 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span>
+ <span class="p">}</span>
+
+</code></pre>
+</div>
+
+<p>index.js</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+ <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./a'</span><span class="p">);</span>
+
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">a</span><span class="p">())</span> <span class="c1">//输出 a</span>
+</code></pre>
+</div>
+
+<p>b.js</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+ 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span>
+ <span class="p">}</span>
+
+</code></pre>
+</div>
+
+<p>index2.js</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+ <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./b'</span><span class="p">);</span>
+
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">())</span> <span class="c1">//输出 b</span>
+</code></pre>
+</div>
+
+<p><strong>export导出的是一个对象{a:function(){}}</strong>
+<strong>module.exports导出的就是fn</strong></p>
+
+<h2 id="export-default--export">export default &amp; export</h2>
+
+<h2 id="export-default-和-export是es6模块化的写法区别于commonjs">export default 和 export是es6模块化的写法，区别于commonjs</h2>
+
+<p>profile.js</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>export var name = 'guolei';
+
+export default {
+	a:1,
+	b:2,
+	fn(){console.log(111)}
+}
+</code></pre>
+</div>
+
+<p>index.js</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import {name} from './profile'
+
+import obj from './profile'
+</code></pre>
+</div>
+
+<p>export default 默认导出 接收的时候随便命名一个变量
+export 需要在{}内，接收对应的变量name(要和export一样)</p>
+
+<p>代码地址：<a href="https://github.com/thunderqin/babel-demo">github</a></p>
+

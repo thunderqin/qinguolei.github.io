@@ -1,0 +1,170 @@
+<blockquote>
+  <p>ES6(ECMAScript 6)是即将到来的新版本JavaScript语言的标准</p>
+</blockquote>
+
+<h2 id="箭头函数">箭头函数</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span><span class="p">[</span><span class="s1">'guolei'</span><span class="p">,</span><span class="s1">'guanxi'</span><span class="p">,</span><span class="s1">'nimei'</span><span class="p">];</span>
+
+<span class="err">传统做法</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span><span class="nx">v</span> <span class="o">=</span> <span class="s1">'hello '</span><span class="o">+</span><span class="nx">v</span><span class="p">;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">)})</span>
+
+<span class="nx">es6</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">v</span><span class="p">,</span><span class="nx">i</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span><span class="nx">v</span><span class="o">=</span><span class="s1">'hello '</span><span class="o">+</span><span class="nx">v</span><span class="p">;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">)})</span>
+
+</code></pre>
+</div>
+<p>简洁直接</p>
+
+<h2 id="class">class</h2>
+
+<p>之前保存了class的关键字，现在终于用上了</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>class Person {
+  //ES6中新型构造器
+    constructor(name) {
+        this.name = name;
+    }
+    //实例方法
+    sayName() {
+        console.log('My name is '+this.name);
+    }
+}
+//类的继承
+class Manong extends Person {
+    constructor(name) {
+      //直接调用父类构造器进行初始化
+        super(name);
+    }
+    program() {
+        console.log("I'm coding...");
+    }
+}
+//测试我们的类
+var ren =new Person('dummy'),
+wayou= new Manong('wayou');
+animal.sayName();//输出 ‘My name is dummy’
+wayou.sayName();//输出 ‘My name is wayou’
+wayou.program();//输出 ‘I'm coding...’
+
+</code></pre>
+</div>
+
+<p>用class实现继承和原型链相比，一个直观，一个方便，各有优点吧。</p>
+
+<p>##字符串</p>
+
+<p>传统</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>var name = 'guolei'
+var fullName = 'qin ' + name
+</code></pre>
+</div>
+
+<p>es6</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let name = 'guolei'
+let fullName = `qin ${name}`
+</code></pre>
+</div>
+
+<p>es6虽然强大，无奈大多数浏览器都无法兼容，不过办法总比问题多，babel让你的代码插上es6的翅膀，更具逼格</p>
+
+<h2 id="安装">安装</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">#</span> <span class="nx">ES2015</span><span class="err">转码规则</span>
+<span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">preset</span><span class="o">-</span><span class="nx">es2015</span>
+
+<span class="err">#</span> <span class="nx">react</span><span class="err">转码规则</span>
+<span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">preset</span><span class="o">-</span><span class="nx">react</span>
+</code></pre>
+</div>
+
+<p>项目根目录添加配置文件 .babelrc (很重要)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"presets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"es2015"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"react"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"plugins"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>.babelrc</p>
+
+<h2 id="运行">运行</h2>
+
+<p>新建自己的项目仓库</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir babel-demo
+git init
+npm init
+</code></pre>
+</div>
+
+<p>安装babel命令行工具</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">global</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">cli</span>
+</code></pre>
+</div>
+
+<p>新建一个example.js</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>example.js</p>
+
+<p><strong>执行</strong></p>
+
+<p>babel example.js</p>
+
+<p>执行结果输出在命令行
+<img src="http://www.qinguolei.com/img/in-post/babel/babel-example.jpeg" alt="" /></p>
+
+<p>如果想输出到指定文件</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">babel</span> <span class="nx">example</span><span class="p">.</span><span class="nx">js</span> <span class="o">-</span><span class="nx">o</span> <span class="nx">compiled</span><span class="p">.</span><span class="nx">js</span>
+</code></pre>
+</div>
+
+<p>当然我们一般是批量转化</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">babel</span> <span class="nx">src</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">lib</span>
+</code></pre>
+</div>
+<p>将src里面的多有代码转化为es5并保存到lib文件夹中</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/babel/babel-lib.jpeg" alt="" /></p>
+
+<p>然而目前的操作都是在全局下进行的，依赖性太强，我们需要把它放到项目中</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">cli</span>
+</code></pre>
+</div>
+
+<p>改写package.json</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"babel src -d lib"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>这样编译只需要执行</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">run</span> <span class="nx">build</span>
+</code></pre>
+</div>
+
+<p>当然如果嫌麻烦，可以在线转化
+<a href="https://babeljs.io/repl/">babel在线转化网址</a></p>
+
+<p>代码地址：<a href="https://github.com/thunderqin/babel-demo">github</a></p>
+
+<h3 id="著作权声明">著作权声明</h3>
+
+<p>本文主要参照了<a href="http://www.ruanyifeng.com/blog/2016/01/babel.html">一峰</a>老师的博客，感谢老师</p>

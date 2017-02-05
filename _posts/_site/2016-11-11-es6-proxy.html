@@ -1,0 +1,94 @@
+<blockquote>
+  <p>之前通过<strong>Object.definProperty</strong>监听数据的读写,
+es6提供了一个<strong>Proxy</strong>对象，同样可以实现对数据的监听</p>
+</blockquote>
+
+<h2 id="效果-">效果 ***</h2>
+
+<p><img src="http://www.qinguolei.com/img/in-post/proxy/proxy.gif" alt="" /></p>
+
+<h2 id="回顾es5">回顾ES5</h2>
+
+<p>以前实现数据的监听，可以通过Object.definProperty，在set和get中对读写进行处理。</p>
+
+<h3 id="具体实现">具体实现</h3>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="p">{</span>
+	<span class="na">get</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="k">return</span> <span class="s1">'新值'</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">bVal</span><span class="p">;</span> <span class="p">},</span>
+    <span class="na">set</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newValue</span><span class="p">){</span> <span class="k">this</span><span class="p">.</span><span class="nx">bVal</span> <span class="o">=</span> <span class="nx">newValue</span> <span class="p">},</span>
+    <span class="na">enumerable</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">configurable</span> <span class="p">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+
+</code></pre>
+</div>
+
+<p><strong>enumerable</strong> 是否可被Object.key枚举
+<strong>configurable</strong> 是否可配置，注意（默认是false,所以需要第一次就设置为true）
+<strong>get</strong> 当读取o.b的值时，会执行get函数
+<strong>set</strong> 当给o.b设置新的值是，会执行set函数</p>
+
+<h3 id="问题">问题</h3>
+
+<p>上面的demo对一个属性（b）进行监听，假如o有3个属性怎么办</p>
+
+<p>也可以这样</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Object.defineProperty(o, {a:{...}}, {b:{...}},{c:{...}});
+</code></pre>
+</div>
+<p>假如有100个呢！！？</p>
+
+<h2 id="救星proxy">救星Proxy</h2>
+
+<p>先看个demo</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s1">'guolei'</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">23</span><span class="p">};</span>
+
+<span class="kd">let</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">obj</span><span class="p">,{</span>
+	<span class="nx">set</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span><span class="nx">property</span><span class="p">,</span><span class="nx">value</span><span class="p">){</span>
+		<span class="nx">target</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`赋值为</span><span class="p">:</span><span class="nx">$</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">true</span>
+	<span class="p">},</span>
+	<span class="nx">get</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">receiver</span><span class="p">){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'取值'</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+	<span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">proxy</span><span class="p">.</span><span class="nx">name</span>  <span class="c1">// '取值'' '国雷'</span>
+<span class="nx">proxy</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'qinguolei'</span> <span class="c1">// '赋值为qinguolei'</span>
+<span class="nx">proxy</span><span class="p">.</span><span class="nx">age</span>  <span class="c1">// '取值'' 23</span>
+<span class="nx">proxy</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="mi">666</span>  <span class="c1">// '赋值为666'</span>
+
+</code></pre>
+</div>
+<p>proxy是一个Proxy对象,所有的修改通过proxy进行，这样就可以实现对每一个属性的取值和赋值的监听</p>
+
+<p>如果我们在set中对加入对view的控制，不就可以实现数据绑定了吗</p>
+
+<h2 id="实现数据绑定">实现数据绑定</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div id="app"&gt;
+	&lt;p&gt;
+		看这里：&lt;span&gt;&lt;/span&gt;
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="input-wrap"&gt;
+	Val: &lt;input type="text" id="input"&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p>html代码</p>
+
+<h2 id="优化">优化</h2>
+
+<ol>
+  <li>每次修改代码会把模板全部替换掉 应该是局部优化</li>
+  <li>加上v-model，自动监听输入框oniput事件</li>
+</ol>
+
+<p>代码地址：<a href="https://github.com/thunderqin/wx_app_demo_cnode_api">github</a></p>
+
+<h3 id="著作权声明">著作权声明</h3>
+

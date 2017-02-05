@@ -2,7 +2,7 @@
 layout:     post
 title:      "redis简单上手"
 subtitle:   "提高数据查询效率"
-date:       2016-2-5 12:00:00
+date:       2017-02-05 12:00:00
 author:     "Guolei"
 header-img: ""
 header-mask: 0.3
@@ -14,14 +14,14 @@ tags:
 
 > Redis是常用基于内存的Key-Value数据库，比Memcache更先进，支持多种数据结构，高效，快速。用Redis可以很轻松解决高并发的数据访问问题；做为时时监控信号处理也非常不错。
 
-## 安装 ##
+## 安装 
 
 ```
 sudo apt-get install redis-server
 redis-cli //启动
 ```
 
-## 数据类型 ##
+## 数据类型 
 
 **字符串**
 ```

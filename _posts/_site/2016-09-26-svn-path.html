@@ -1,0 +1,151 @@
+<blockquote>
+  <p>svg相对于canves，svg更加适合做小图标和线条，canves做大型游戏</p>
+</blockquote>
+
+<p>svg的基础教程可以在w3c上查看，本篇文章主要讲，如何绘制自定义路径，以及如何在自定义路径上实现动画。</p>
+
+<h2 id="先看效果">先看效果</h2>
+
+<p><img src="http://www.qinguolei.com/img/in-post/svg/lei.gif" alt="" /></p>
+
+<p>(忽略我丑陋的书法)</p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/svg/car.gif" alt="" /></p>
+
+<p>难点：</p>
+
+<ol>
+  <li>如何将自定义路径转化为Path代码</li>
+  <li>如何获取svn每个像素点的坐标</li>
+  <li>车子并不是简单的位移，车头方向和前进方向相同（切线）</li>
+</ol>
+
+<h2 id="原理">原理</h2>
+
+<p>svg实现动画一般是通过 <strong>stroke-dasharray</strong>和<strong>stroke-dashoffset</strong>这两个属性来实现。</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;svg</span> <span class="na">width=</span><span class="s">"580"</span> <span class="na">height=</span><span class="s">"400"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span><span class="nt">&gt;</span>
+ <span class="c">&lt;!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ --&gt;</span>
+ <span class="nt">&lt;g&gt;</span>
+  <span class="nt">&lt;title&gt;</span>background<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;rect</span> <span class="na">fill=</span><span class="s">"#fff"</span> <span class="na">id=</span><span class="s">"canvas_background"</span> <span class="na">height=</span><span class="s">"402"</span> <span class="na">width=</span><span class="s">"582"</span> <span class="na">y=</span><span class="s">"-1"</span> <span class="na">x=</span><span class="s">"-1"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;g</span> <span class="na">display=</span><span class="s">"none"</span> <span class="na">overflow=</span><span class="s">"visible"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">x=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"100%"</span> <span class="na">width=</span><span class="s">"100%"</span> <span class="na">id=</span><span class="s">"canvasGrid"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;rect</span> <span class="na">fill=</span><span class="s">"url(#gridpattern)"</span> <span class="na">stroke-width=</span><span class="s">"0"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">x=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"100%"</span> <span class="na">width=</span><span class="s">"100%"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/g&gt;</span>
+ <span class="nt">&lt;/g&gt;</span>
+ <span class="nt">&lt;g&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Layer 1<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"m168.5,30c0,-1 0.96384,-1.11587 4,-2c3.95868,-1.15277 9.04495,-0.2669 15,-1c4.09221,-0.50377 9.01257,-0.64556 14,-1c7.05328,-0.50126 15,-1 23,-1c6,0 13,0 21,0c9,0 16,0 17,0c1,0 6.41422,2.58579 5,4c-0.70709,0.70711 -4.13043,1.48757 -9,3c-7.27304,2.25893 -13.07278,6.8819 -18,10c-6.09346,3.85613 -13.97354,9.06009 -23,13c-13.95969,6.09319 -31.09531,13.79768 -44,20c-10.07687,4.8432 -18.25406,7.35724 -24,10c-5.2975,2.4365 -12,6 -18,9c-4,2 -8.94341,3.14773 -14,5c-5.93867,2.17538 -10.07844,2.78985 -13,4c-2.06586,0.85571 -3.18734,1.79319 -1,0c5.57665,-4.57176 14.78916,-10.40383 26,-16c10.81097,-5.39656 19.94585,-10.14858 28,-13c8.94293,-3.16607 18.93364,-5.36646 29,-7c7.95816,-1.29143 16.01761,-2.50378 23,-3c7.05328,-0.50126 15,-1 25,-1c10,0 19,0 26,0c9,0 17,0 26,0c4,0 7,0 8,1c1,1 2,4 3,8c1,4 2.09964,8.06743 1,17c-1.00754,8.18443 -6,15 -9,21c-3,6 -4.56952,10.133 -6,14c-2.32739,6.29152 -3.0979,8.82443 -5,10c-0.85065,0.52573 -1.91754,-0.05664 -4,-3c-2.88785,-4.0817 -7.86548,-9.26365 -12,-15c-3.92236,-5.44198 -12.08847,-17.93415 -21,-30c-8.08066,-10.94089 -13.69594,-19.1594 -18,-27c-2.80591,-5.11145 -4.29289,-6.29289 -5,-7c-1.41422,-1.41422 -2.14774,-4.94341 -4,-10c-2.17538,-5.93866 -1,-13 -3,-13c-2,0 -1,7 -1,14c0,16 0.16263,32.0242 -2,46c-1.86035,12.02244 -3.87253,27.03259 -7,39c-2.88283,11.03128 -3.58578,17.58578 -5,19c-0.70711,0.70711 -2,-2 -2,-7c0,-7 2.98692,-15.75711 4,-22c0.96109,-5.92252 3.17293,-11.44966 6,-19c1.78799,-4.77525 2.41589,-6.76108 4,-10c1.38936,-2.84072 1,-4 2,-5c1,-1 2,-1 4,0c4,2 9.04735,5.93789 13,9c5.06187,3.92142 8.87766,6.066 10,8c1.80972,3.11848 1.5405,5.0535 2,7c0.51375,2.17625 1,3 1,4c0,1 -2,1 -4,1c-2,0 -5.132,-1.75532 -9,-4c-3.11848,-1.80972 -3,-4 -4,-4c-1,0 1.42215,4.19075 3,8c2.23141,5.3871 3.84723,9.04132 5,13c0.88414,3.03616 1,5 1,7c0,3 -1.69255,5.186 -3,7c-0.8269,1.14726 -2.48825,1.58672 -5,-1c-6.57204,-6.76817 -10.51442,-16.46185 -21,-27c-9.48933,-9.5369 -16.87856,-14.49346 -20,-15c-3.94835,-0.64073 -9,0 -16,0c-5,0 -9,0 -10,0c-1,0 -1,-1 0,-1c4,0 8.186,1.69255 10,3c2.29454,1.65381 1.85194,3.22836 3,6c0.5412,1.30656 1.4595,2.0535 1,4c-0.51375,2.17625 -3.87856,4.49346 -7,5c-4.93544,0.80091 -10,0 -13,0c-1,0 2.19801,0.63297 8,4c3.11848,1.80972 5,3 5,4c0,1 0.91948,2.48692 -1,5c-2.18855,2.86536 -8,4 -15,5c-7,1 -11,1 -13,1c-1,0 -1.1387,1.00966 -1,2c1.00977,7.20975 7.74022,14.24005 17,24c5.84019,6.15565 13.97252,9.64749 15,14c1.14876,4.86624 3.60582,11.14442 2,20c-1.52446,8.40691 -8.67679,19.18256 -15,30c-4.76083,8.14459 -8.38687,13.9176 -11,15c-0.92387,0.38269 -3,-2 -3,-9c0,-14 2,-24 6,-32c4,-8 8.25287,-17.83705 16,-24c7.38283,-5.87314 14.66708,-8.94373 22,-11c6.80844,-1.90919 15,-1 24,-1c12,0 24,0 34,0c9,0 16.87857,-0.49345 20,-1c0.98709,-0.16019 1.83981,0.01291 2,1c0.50653,3.12144 2.57974,8.8905 4,18c1.70151,10.91351 1,24 1,36c0,12 0.45557,26.1328 -5,44c-3.69391,12.09772 -7,23 -11,31c-2,4 -2.09789,6.82443 -4,8c-0.85065,0.52573 -1,2 -3,2c-3,0 -6.74066,-2.38458 -14,-7c-15.49161,-9.84937 -37.41005,-19.27457 -52,-28c-12.37761,-7.40234 -16.62532,-12.41362 -21,-16c-2.78833,-2.28587 -6.67261,-5.70848 -9,-12c-1.4305,-3.867 -2,-9 -2,-13c0,-1 -0.203,-3.2565 1,-4c2.68999,-1.66251 7.81602,-2.7007 18,-5c12.83,-2.89671 29,-3 44,-3c13,0 23.61731,1.92387 24,1c1.0824,-2.61313 -4.21005,-5.85075 -7,-10c-3.2536,-4.83881 -4.41156,-9.40401 -8,-14c-2.61098,-3.34407 -6.88152,-7.19028 -10,-9c-1.93399,-1.12234 -3,-2 -4,-3c0,0 0,5 0,10c0,10 0.56841,26.05223 -1,40c-1.46977,13.07057 -1.09271,23.03748 -2,34c-0.50171,6.06204 -1.29289,9.29291 -2,10c-0.70711,0.70709 -3.00388,0.76706 -10,1c-15.02496,0.50027 -32.53976,4.46872 -40,6c-0.97958,0.20108 -3,0 -4,0c-1,0 1,0 8,0c9,0 28,0 45,0c12,0 23,0 32,1l8,1l4,0l3,0"</span> <span class="na">id=</span><span class="s">"svg_1"</span> <span class="na">stroke-width=</span><span class="s">"1.5"</span> <span class="na">stroke=</span><span class="s">"#000"</span> <span class="na">fill=</span><span class="s">"none"</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;/g&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre>
+</div>
+
+<p>html</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">path</span> <span class="p">{</span>
+  <span class="py">stroke-dasharray</span><span class="p">:</span> <span class="m">3000</span><span class="p">;</span>
+  <span class="py">stroke-dashoffset</span><span class="p">:</span> <span class="m">3000</span><span class="p">;</span>
+  <span class="nl">-webkit-animation</span><span class="p">:</span> <span class="n">dash</span> <span class="m">5s</span> <span class="n">linear</span> <span class="n">infinite</span><span class="p">;</span>
+  <span class="nl">animation</span><span class="p">:</span> <span class="n">dash</span> <span class="m">5s</span> <span class="n">linear</span> <span class="n">infinite</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>css</p>
+
+<ul>
+  <li>stroke-dasharray代表虚线之间的<strong>间距</strong>大小</li>
+  <li>stroke-dashoffse代表虚线的<strong>偏移量</strong></li>
+</ul>
+
+<p><strong><em>实现过程</em></strong></p>
+
+<ol>
+  <li>设置一个<strong>足够长</strong>的间距 （大于路径的长度）</li>
+  <li>设置一个足够长的偏移量，保证刚开始看不到路径。（可以和长度一样）</li>
+  <li>让偏移变成0  最后在配合css3的animation  增加一个动画过度，实现动画。</li>
+</ol>
+
+<p>代码地址： <a href="https://jsfiddle.net/thunder1992/q6e54ewt/">jsfiddle</a></p>
+
+<h2 id="path代码">path代码</h2>
+
+<p><strong>问题</strong>来了，path的代码哪里来的</p>
+
+<p>难道自己一个个像素点去算?</p>
+
+<p>当然不是，我们有<strong><em>工具</em></strong></p>
+
+<p><a href="http://editor.method.ac/">editor.method.ac</a></p>
+
+<p><img src="http://www.qinguolei.com/img/in-post/svg/mothod.png" alt="" /></p>
+
+<p>使用教程：</p>
+
+<ol>
+  <li>选择画笔工具</li>
+  <li>在画板上绘制路线</li>
+  <li>点击view，导出路径代码</li>
+</ol>
+
+<h2 id="高阶用法">高阶用法</h2>
+
+<p>绘制好svn路线之后，如何让物体沿着路径前进</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// 配置位移矢量 一共走100步
+var STEP = 100;
+var curStep = 0;
+
+var path = $('#path')[0];
+var $car = $('#car');
+
+var timer = null;
+// 最重要的两个属性  获取长度，以及每个点的坐标
+var totalLength = path.getTotalLength();
+var initPosition = path.getPointAtLength(0);
+var prePosition = initPosition;
+var curPosition = initPosition;
+
+// 获取前进切线角度
+function getRotate(a, b) {
+  var k = (b.y - a.y) / (b.x - a.x);
+  var rotate = Math.atan(k) * 180 / Math.PI;
+  return k &lt; 0 ? rotate + 90 : rotate - 90;
+}
+
+// 定位car 
+$car.css({
+  left: initPosition.x,
+  top:initPosition.y,
+  '-webkit-transform': 'translate(-2px, 0) rotate(' + getRotate(curPosition , path.getPointAtLength(1)) +'deg)'
+}).show()
+
+// 定时器控制前进
+timer = setInterval(function() {
+  
+  if (curStep != STEP) {
+    curStep++;
+    
+    curPosition = path.getPointAtLength(totalLength/STEP * curStep);
+   
+    $car.css({
+      left: curPosition.x,
+      top:curPosition.y,
+     '-webkit-transform': 'translate(-2px, 0) rotate('+getRotate(prePosition, curPosition)+'deg)'
+    }).show();
+    prePosition = curPosition;
+  } else {
+    clearInterval(timer);
+  }
+  
+}, 100)
+</code></pre>
+</div>
+
+<p>原理就是将svn的长度平分100次，每100ms走一次，每次的坐标通过 path.getPointAtLength(totalLength/STEP * curStep)计算，然后通过js控制小车的位置。</p>
+
+<p>通过setimeout可以配置小车运动的快慢，还可以通过缓动函数，使小车具有惯性。</p>
+
+<p>地址： <a href="https://jsfiddle.net/thunder1992/goeopq7p/">jsfiddle</a></p>
+
