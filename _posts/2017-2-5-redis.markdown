@@ -1,0 +1,65 @@
+---
+layout:     post
+title:      "redis简单上手"
+subtitle:   "提高数据查询效率"
+date:       2016-2-5 12:00:00
+author:     "Guolei"
+header-img: ""
+header-mask: 0.3
+catalog:    true
+tags:
+    - redis
+    - ubuntu
+---
+
+> Redis是常用基于内存的Key-Value数据库，比Memcache更先进，支持多种数据结构，高效，快速。用Redis可以很轻松解决高并发的数据访问问题；做为时时监控信号处理也非常不错。
+
+## 安装 ##
+
+```
+sudo apt-get install redis-server
+redis-cli //启动
+```
+
+## 数据类型 ##
+
+**字符串**
+```
+set name "gray"
+get name
+```
+
+**数组集合**
+```
+// 左插入
+LPUSH key3 a
+// 右插入
+RPUSH key3 b
+RPUSH key3 c
+// 输出 第一位 三个
+LRANGE key3 0 3
+```
+
+**哈希hash**
+```
+HSET key4 name "John Smith"
+HSET key4 age 23
+HGET　key4 name
+HGETALL key4
+```
+
+**哈希muti**
+```
+HMSET key5 name "John Smith" age 23
+HMGET key5 username age
+HGETALL key5
+
+```
+
+**删除**
+```
+keys * 
+del person
+```
+
+
