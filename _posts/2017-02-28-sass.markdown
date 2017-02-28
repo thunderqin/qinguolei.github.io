@@ -1,0 +1,73 @@
+---
+layout:     post
+title:      "window下安装sass"
+subtitle:   "命令行下如何编译sass文件"
+date:       2017-02-28 12:00:00
+author:     "Guolei"
+header-img: ""
+header-mask: 0.3
+catalog:    true
+tags:
+    - sass
+    - ruby
+    - gem
+---
+
+> sass 
+
+## 安装 
+
+```
+gem install sass
+```
+**查看版本**
+
+```
+sass -v
+```
+**查看帮助**
+
+```
+sass -h
+```
+
+##使用
+
+**编译单个文件**
+
+```
+sass app.scss  app.css
+```
+
+**编译单个文件**
+
+```
+sass --watch app.scss:app.css
+```
+
+**编译文件夹**
+
+```
+sass --watch sass:css
+```
+
+**css2scss**
+
+```
+sass-convert style.css style.sass   
+```
+
+
+## 常用的配置
+
+--style表示解析后的css是什么格式，有四种取值分别为：nested，expanded，compact，compressed。
+
+nested: tab空格缩进表示层级
+expanded： 展开 最方便查看
+compact：每个样式一条展示
+compressed： 压缩
+
+--sourcemap表示开启sourcemap调试。开启sourcemap调试后，会生成一个后缀名为.css.map文件。
+
+--debug-info表示开启debug信息，升级到3.3.0之后因为sourcemap更高级，这个debug-info就不太用了。
+
